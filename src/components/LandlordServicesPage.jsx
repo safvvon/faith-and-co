@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowRight, Plus, X, ShieldCheck, CheckCircle2, Phone, Mail, ChevronRight, Clock, Award, Building, UserCheck } from 'lucide-react';
+import StandardFooter from './StandardFooter';
+import HomeFooterCta from './HomeFooterCta';
 
 const SERVICES_GRID = [
   {
@@ -111,7 +113,19 @@ const FAQ_ITEMS = [
   }
 ];
 
-export default function LandlordServicesPage({ onNavigateConsultation, onExploreProperties }) {
+export default function LandlordServicesPage({ 
+  onNavigateHome, 
+  onNavigateProperties,
+  onExploreProperties, 
+  onNavigateConsultation, 
+  onNavigateRentersRights, 
+  onNavigateHmoLicensing, 
+  onNavigateGuideToLetting, 
+  onNavigateRegisterLandlord, 
+  onNavigateLetWithUs, 
+  onNavigateFreeValuation,
+  onNavigateContact 
+}) {
   const [openFaq, setOpenFaq] = useState(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', propertyType: '', location: '' });
@@ -138,58 +152,53 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#090a14] text-white font-montserrat selection:bg-amber-200 selection:text-black relative">
+    <div className="w-full min-h-screen bg-[#090a14] text-white font-dm selection:bg-[#C9A84C] selection:text-[#090a14] relative overflow-x-hidden pt-24 sm:pt-28">
       
       {/* ----------------------------------------------------
-          1. HERO SECTION
+          1. HERO HEADER AREA
       ---------------------------------------------------- */}
-      <section className="relative w-full h-[88vh] sm:h-[92vh] overflow-hidden bg-black flex flex-col justify-between">
-        {/* Background Image */}
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src="/properties/cotswolds_estate.png"
-            alt="UK Residential Property Management"
-            className="w-full h-full object-cover animate-hero-zoom filter brightness-[0.88]"
-          />
-        </div>
+      <section className="relative w-full py-24 sm:py-32 px-6 sm:px-12 lg:px-16 border-b border-[rgba(255,255,255,0.07)] bg-[#090a14] overflow-hidden text-center">
+        <div className="max-w-4xl mx-auto relative z-10 space-y-6 animate-fade-up">
+          <div>
+            <span className="inline-block px-3.5 py-1.5 border border-[#C9A84C]/50 text-[#C9A84C] text-[10px] font-dm tracking-[0.25em] font-medium uppercase">
+              FOR LANDLORDS IN LONDON &amp; HOME COUNTIES
+            </span>
+          </div>
 
-        {/* Gradient Overlays */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#090a14] via-black/40 to-black/60 pointer-events-none" />
-
-        {/* Top Label */}
-        <div className="relative z-30 px-6 sm:px-12 pt-28 sm:pt-32">
-          <span className="inline-block px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-amber-200 text-xs tracking-[0.25em] font-medium uppercase shadow-lg">
-            FOR LANDLORDS
-          </span>
-        </div>
-
-        {/* Center/Bottom Hero Content */}
-        <div className="relative z-30 px-6 sm:px-12 lg:px-16 pb-16 max-w-5xl space-y-6 animate-fade-up">
-          <h1 className="font-montserrat font-light text-4xl sm:text-7xl lg:text-8xl text-white tracking-[0.05em] leading-[1.05] drop-shadow-xl">
-            PROPERTY<br />
-            MANAGED<br />
-            PROPERLY.
+          <h1 className="font-cormorant font-light text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-[1.08]">
+            Landlord Services <span className="italic text-[#C9A84C] font-normal">&amp; Property Management</span>
           </h1>
 
-          <p className="text-white/85 text-sm sm:text-xl font-light tracking-wide max-w-2xl font-montserrat leading-relaxed">
-            "Professional property management for landlords who expect more."
+          <p className="font-dm text-sm sm:text-base lg:text-lg font-light text-white/70 tracking-wide max-w-2xl mx-auto leading-relaxed">
+            Professional, bespoke property letting, tenant management, rent collection, and statutory compliance for property owners who expect absolute peace of mind.
           </p>
 
-          {/* Action CTAs */}
-          <div className="pt-4 flex flex-wrap items-center gap-5">
+          {/* Action Buttons */}
+          <div className="pt-6 flex flex-wrap items-center justify-center gap-4 font-dm">
             <button
-              onClick={scrollToConsultation}
-              className="inline-flex items-center gap-3 px-8 sm:px-10 py-4 rounded-full bg-white hover:bg-amber-200 text-black text-xs sm:text-sm tracking-[0.25em] font-semibold uppercase transition-all duration-300 transform hover:scale-105 cursor-pointer shadow-2xl active:scale-95"
+              onClick={onNavigateRegisterLandlord || scrollToConsultation}
+              className="inline-flex items-center gap-3 px-8 sm:px-10 py-4.5 bg-[#C9A84C] hover:bg-[#E8C878] text-[#090a14] text-xs tracking-[0.2em] font-semibold uppercase transition-all duration-300 cursor-pointer shadow-2xl active:scale-95 rounded-none"
             >
-              <span>TALK TO OUR TEAM</span>
+              <span>REGISTER AS LANDLORD</span>
               <ArrowRight className="w-4 h-4" />
             </button>
 
+            {onNavigateFreeValuation && (
+              <button
+                onClick={onNavigateFreeValuation}
+                className="px-6 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium text-xs tracking-[0.18em] uppercase transition-all cursor-pointer inline-flex items-center gap-2 rounded-none"
+              >
+                <span>FREE VALUATION</span>
+                <ChevronRight className="w-4 h-4 text-[#C9A84C]" />
+              </button>
+            )}
+
             <button
-              onClick={scrollToServices}
-              className="px-7 py-4 rounded-full bg-white/10 hover:bg-white/20 border border-white/25 text-white font-medium text-xs sm:text-sm tracking-[0.2em] uppercase backdrop-blur-md transition-all cursor-pointer"
+              onClick={onNavigateGuideToLetting}
+              className="px-6 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-medium text-xs tracking-[0.18em] uppercase transition-all cursor-pointer inline-flex items-center gap-2 rounded-none"
             >
-              EXPLORE OUR SERVICES
+              <span>GUIDE TO LETTING</span>
+              <ChevronRight className="w-4 h-4 text-[#C9A84C]" />
             </button>
           </div>
         </div>
@@ -198,10 +207,10 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
       {/* ----------------------------------------------------
           2. INTRODUCTION
       ---------------------------------------------------- */}
-      <section className="bg-[#17172D] py-20 sm:py-28 border-b border-white/10">
+      <section className="bg-[#090a14] py-20 sm:py-28 border-b border-white/10">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
-          <span className="text-xs font-semibold tracking-[0.25em] uppercase text-amber-200/90 block mb-3">
+          <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C9A84C] block mb-3 font-dm">
             OUR APPROACH
           </span>
 
@@ -209,16 +218,15 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
             
             {/* Left Statement & Image */}
             <div className="lg:col-span-6 space-y-6">
-              <h2 className="font-montserrat font-light text-3xl sm:text-5xl text-white leading-tight tracking-[0.05em]">
-                MORE THAN<br />
-                <span className="text-amber-100/90 font-light">PROPERTY MANAGEMENT.</span>
+              <h2 className="font-cormorant font-light text-4xl sm:text-6xl text-white leading-tight tracking-tight">
+                More than standard <span className="italic text-[#C9A84C] font-normal">property management</span>
               </h2>
 
-              <p className="text-white/80 text-sm sm:text-base font-light leading-relaxed font-montserrat">
-                "From finding the right tenants to managing maintenance, compliance and day-to-day operations, we take care of the details so you can focus on your investment."
+              <p className="text-white/80 text-sm sm:text-base font-light leading-relaxed font-dm">
+                From finding high-quality tenants to managing maintenance, compliance, and day-to-day operations, we take care of every detail so you can enjoy your investment effortless.
               </p>
 
-              <div className="pt-4 rounded-xl overflow-hidden border border-white/15 shadow-2xl">
+              <div className="pt-4 overflow-hidden border border-white/15 shadow-2xl rounded-none">
                 <img
                   src="/properties/london_mayfair.png"
                   alt="Architectural London Property"
@@ -228,34 +236,34 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
             </div>
 
             {/* Right Three Pillars */}
-            <div className="lg:col-span-6 space-y-8 bg-white/[0.03] border border-white/10 rounded-2xl p-8 sm:p-12 backdrop-blur-sm">
-              <div className="space-y-2 pb-6 border-b border-white/10">
-                <span className="text-amber-200 font-mono text-xs tracking-widest block">01</span>
-                <h3 className="font-montserrat font-light text-xl sm:text-2xl text-white tracking-[0.05em]">
-                  PROTECT YOUR ASSET
+            <div className="lg:col-span-6 space-y-8 bg-white/[0.03] border border-white/10 p-8 sm:p-12 font-dm animate-slide-right shadow-2xl">
+              <div className="space-y-2 pb-6 border-b border-white/10 group hover:pl-2 transition-all duration-300">
+                <span className="text-[#C9A84C] font-mono text-xs tracking-widest block animate-float-slow">01</span>
+                <h3 className="font-cormorant font-light text-2xl sm:text-3xl text-white tracking-tight group-hover:text-[#C9A84C] transition-colors">
+                  Protect Your Asset
                 </h3>
-                <p className="text-white/60 text-xs sm:text-sm font-light leading-relaxed">
+                <p className="text-white/60 text-xs sm:text-sm font-light leading-relaxed font-dm">
                   Rigorous screening, quarterly physical inspections, and proactive maintenance keep your building in peak architectural condition.
                 </p>
               </div>
 
-              <div className="space-y-2 pb-6 border-b border-white/10">
-                <span className="text-amber-200 font-mono text-xs tracking-widest block">02</span>
-                <h3 className="font-montserrat font-light text-xl sm:text-2xl text-white tracking-[0.05em]">
-                  SIMPLIFY YOUR DAY
+              <div className="space-y-2 pb-6 border-b border-white/10 group hover:pl-2 transition-all duration-300">
+                <span className="text-[#C9A84C] font-mono text-xs tracking-widest block animate-float-slow">02</span>
+                <h3 className="font-cormorant font-light text-2xl sm:text-3xl text-white tracking-tight group-hover:text-[#C9A84C] transition-colors">
+                  Simplify Your Ownership
                 </h3>
-                <p className="text-white/60 text-xs sm:text-sm font-light leading-relaxed">
+                <p className="text-white/60 text-xs sm:text-sm font-light leading-relaxed font-dm">
                   A dedicated private account manager handles tenant queries, legal compliance, and contractor coordination on your behalf.
                 </p>
               </div>
 
-              <div className="space-y-2">
-                <span className="text-amber-200 font-mono text-xs tracking-widest block">03</span>
-                <h3 className="font-montserrat font-light text-xl sm:text-2xl text-white tracking-[0.05em]">
-                  MAXIMISE YOUR RETURN
+              <div className="space-y-2 group hover:pl-2 transition-all duration-300">
+                <span className="text-[#C9A84C] font-mono text-xs tracking-widest block animate-float-slow">03</span>
+                <h3 className="font-cormorant font-light text-2xl sm:text-3xl text-white tracking-tight group-hover:text-[#C9A84C] transition-colors">
+                  Maximise Your Yield
                 </h3>
-                <p className="text-white/60 text-xs sm:text-sm font-light leading-relaxed">
-                  Strategic rental pricing, minimal void periods, and timely rent collection maximize net yields year after year.
+                <p className="text-white/60 text-xs sm:text-sm font-light leading-relaxed font-dm">
+                  Strategic rental pricing, minimal void periods, and timely rent collection maximize net returns year after year.
                 </p>
               </div>
             </div>
@@ -267,13 +275,13 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
       {/* ----------------------------------------------------
           3. CORE SERVICES
       ---------------------------------------------------- */}
-      <section id="core-services" className="max-w-[1500px] mx-auto px-6 lg:px-12 py-20 sm:py-28">
+      <section id="core-services" className="max-w-[1500px] mx-auto px-6 lg:px-12 py-20 sm:py-28 font-dm">
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-semibold tracking-[0.25em] text-amber-200 uppercase block">
+          <span className="text-xs font-semibold tracking-[0.25em] text-[#C9A84C] uppercase block">
             LANDLORD SERVICES
           </span>
-          <h2 className="font-montserrat font-light text-3xl sm:text-5xl text-white tracking-[0.05em]">
-            EVERYTHING<br />UNDER CONTROL.
+          <h2 className="font-cormorant font-light text-4xl sm:text-6xl text-white tracking-tight">
+            Complete property <span className="italic text-[#C9A84C] font-normal">peace of mind</span>
           </h2>
         </div>
 
@@ -282,19 +290,19 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
           {SERVICES_GRID.map((service) => (
             <div
               key={service.number}
-              className="group p-8 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-amber-200/50 hover:bg-white/[0.06] transition-all duration-500 flex flex-col justify-between space-y-6 cursor-pointer"
+              className="group p-8 bg-white/[0.03] border border-white/10 hover:border-[#C9A84C]/50 hover:bg-white/[0.05] transition-all duration-500 flex flex-col justify-between space-y-6 cursor-pointer"
             >
               <div className="flex items-center justify-between">
-                <span className="font-mono text-sm tracking-widest text-amber-200 group-hover:-translate-y-1 transition-transform duration-300">
+                <span className="font-mono text-sm tracking-widest text-[#C9A84C] group-hover:-translate-y-1 transition-transform duration-300">
                   {service.number}
                 </span>
-                <div className="w-8 h-8 rounded-full border border-white/20 flex items-center justify-center text-white/50 group-hover:text-amber-200 group-hover:border-amber-200 transition-all">
+                <div className="w-8 h-8 border border-white/20 flex items-center justify-center text-white/50 group-hover:text-[#C9A84C] group-hover:border-[#C9A84C] transition-all">
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </div>
               </div>
 
               <div className="space-y-2">
-                <h3 className="font-montserrat font-light text-xl text-white tracking-[0.05em] group-hover:text-amber-100 transition-colors">
+                <h3 className="font-cormorant font-light text-2xl text-white tracking-tight group-hover:text-[#C9A84C] transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-white/70 text-xs sm:text-sm font-light leading-relaxed">
@@ -302,7 +310,7 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
                 </p>
               </div>
 
-              <div className="w-full h-[1px] bg-white/10 group-hover:bg-amber-200/40 transition-colors" />
+              <div className="w-full h-[1px] bg-white/10 group-hover:bg-[#C9A84C]/40 transition-colors" />
             </div>
           ))}
         </div>
@@ -311,37 +319,37 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
       {/* ----------------------------------------------------
           4. HOW IT WORKS
       ---------------------------------------------------- */}
-      <section className="bg-[#17172D] py-20 sm:py-28 border-y border-white/10">
+      <section className="bg-[#090a14] py-20 sm:py-28 border-y border-white/10 font-dm">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <span className="text-xs font-semibold tracking-[0.25em] text-white/50 uppercase block">
+            <span className="text-xs font-semibold tracking-[0.25em] text-[#C9A84C] uppercase block">
               ONBOARDING PROCESS
             </span>
-            <h2 className="font-montserrat font-light text-3xl sm:text-5xl text-white tracking-[0.05em]">
-              SIMPLE FOR YOU.<br />THOROUGH FOR US.
+            <h2 className="font-cormorant font-light text-4xl sm:text-6xl text-white tracking-tight">
+              Simple for you, <span className="italic text-[#C9A84C] font-normal">thorough for us</span>
             </h2>
           </div>
 
           {/* 4-Step Process Grid with Connecting Line */}
           <div className="relative grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {/* Background Line on Desktop */}
-            <div className="hidden lg:block absolute top-12 left-10 right-10 h-[1px] bg-gradient-to-r from-amber-200/60 via-white/20 to-amber-200/60 z-0" />
+            <div className="hidden lg:block absolute top-12 left-10 right-10 h-[1px] bg-gradient-to-r from-[#C9A84C]/60 via-white/20 to-[#C9A84C]/60 z-0" />
 
             {STEPS_LIST.map((step) => (
               <div
                 key={step.step}
-                className="relative z-10 p-6 rounded-xl bg-[#141428] border border-white/10 space-y-4 shadow-xl hover:border-amber-200/40 transition-colors"
+                className="relative z-10 p-6 bg-white/[0.03] border border-white/10 space-y-4 shadow-xl hover:border-[#C9A84C]/40 transition-colors"
               >
-                <div className="w-12 h-12 rounded-full bg-black/60 border border-white/20 flex items-center justify-center font-mono text-sm font-semibold text-amber-200 shadow-md">
+                <div className="w-12 h-12 bg-black/60 border border-white/20 flex items-center justify-center font-mono text-sm font-semibold text-[#C9A84C] shadow-md">
                   {step.step}
                 </div>
 
-                <h3 className="font-montserrat font-light text-base text-white tracking-[0.05em] leading-snug">
+                <h3 className="font-cormorant font-light text-xl text-white tracking-tight leading-snug">
                   {step.title}
                 </h3>
 
-                <p className="text-white/60 text-xs font-light leading-relaxed font-montserrat">
+                <p className="text-white/60 text-xs font-light leading-relaxed font-dm">
                   {step.desc}
                 </p>
               </div>
@@ -354,11 +362,11 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
       {/* ----------------------------------------------------
           5. PROPERTY MANAGEMENT EXPERIENCE
       ---------------------------------------------------- */}
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-12 py-20 sm:py-28">
+      <section className="max-w-[1400px] mx-auto px-6 lg:px-12 py-20 sm:py-28 font-dm">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Large Interior Photo */}
-          <div className="lg:col-span-6 rounded-2xl overflow-hidden border border-white/15 shadow-2xl">
+          <div className="lg:col-span-6 overflow-hidden border border-white/15 shadow-2xl">
             <img
               src="/properties/gallery_kitchen.png"
               alt="High Spec Kitchen Management"
@@ -369,33 +377,32 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
           {/* Right Copy & Stat Highlights */}
           <div className="lg:col-span-6 space-y-8">
             <div className="space-y-4">
-              <span className="text-xs font-semibold tracking-[0.25em] text-amber-200 uppercase block">
+              <span className="text-xs font-semibold tracking-[0.25em] text-[#C9A84C] uppercase block">
                 LANDLORD DEDICATION
               </span>
-              <h2 className="font-montserrat font-light text-3xl sm:text-5xl text-white tracking-[0.05em] leading-tight">
-                YOUR PROPERTY.<br />
-                <span className="text-amber-100/90 font-light">OUR RESPONSIBILITY.</span>
+              <h2 className="font-cormorant font-light text-4xl sm:text-6xl text-white tracking-tight leading-tight">
+                Your property, <span className="italic text-[#C9A84C] font-normal">our priority</span>
               </h2>
-              <p className="text-white/75 text-sm sm:text-base font-light leading-relaxed">
-                "Your property deserves more than basic administration. Our approach combines responsive management, careful tenant selection and consistent attention to the condition of your investment."
+              <p className="text-white/75 text-sm sm:text-base font-light leading-relaxed font-dm">
+                Your property deserves more than basic administration. Our approach combines responsive management, careful tenant selection, and consistent attention to the condition of your investment.
               </p>
             </div>
 
             {/* Stats Callouts */}
             <div className="grid grid-cols-3 gap-4 pt-4 border-t border-white/10">
               <div className="space-y-1">
-                <span className="font-montserrat font-light text-3xl sm:text-4xl text-white block">24/7</span>
-                <span className="text-[10px] font-semibold tracking-[0.15em] text-white/60 uppercase block">EMERGENCY SUPPORT</span>
+                <span className="font-cormorant font-light text-3xl sm:text-4xl text-white block">24/7</span>
+                <span className="text-[10px] font-semibold tracking-[0.15em] text-white/60 uppercase block font-dm">EMERGENCY SUPPORT</span>
               </div>
 
               <div className="space-y-1">
-                <span className="font-montserrat font-light text-3xl sm:text-4xl text-white block">100%</span>
-                <span className="text-[10px] font-semibold tracking-[0.15em] text-white/60 uppercase block">TRANSPARENT REPORTING</span>
+                <span className="font-cormorant font-light text-3xl sm:text-4xl text-white block">100%</span>
+                <span className="text-[10px] font-semibold tracking-[0.15em] text-white/60 uppercase block font-dm">TRANSPARENT REPORTING</span>
               </div>
 
               <div className="space-y-1">
-                <span className="font-montserrat font-light text-xl sm:text-2xl text-amber-200 block">DIRECT</span>
-                <span className="text-[10px] font-semibold tracking-[0.15em] text-white/60 uppercase block">PROPERTY TEAM</span>
+                <span className="font-cormorant font-light text-2xl sm:text-3xl text-[#C9A84C] block">DIRECT</span>
+                <span className="text-[10px] font-semibold tracking-[0.15em] text-white/60 uppercase block font-dm">PROPERTY TEAM</span>
               </div>
             </div>
 
@@ -407,15 +414,15 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
       {/* ----------------------------------------------------
           6. LANDLORD BENEFITS
       ---------------------------------------------------- */}
-      <section className="bg-[#17172D] py-20 sm:py-28 border-y border-white/10">
+      <section className="bg-[#090a14] py-20 sm:py-28 border-y border-white/10 font-dm">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-            <span className="text-xs font-semibold tracking-[0.25em] text-amber-200 uppercase block">
+            <span className="text-xs font-semibold tracking-[0.25em] text-[#C9A84C] uppercase block">
               THE ADVANTAGE
             </span>
-            <h2 className="font-montserrat font-light text-3xl sm:text-5xl text-white tracking-[0.05em]">
-              WHY LANDLORDS<br />CHOOSE US.
+            <h2 className="font-cormorant font-light text-4xl sm:text-6xl text-white tracking-tight">
+              Why landlords <span className="italic text-[#C9A84C] font-normal">choose Faith &amp; Co</span>
             </h2>
           </div>
 
@@ -423,12 +430,12 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
             {BENEFITS_LIST.map((benefit, idx) => (
               <div
                 key={idx}
-                className="p-8 sm:p-10 rounded-2xl bg-[#141428] border border-white/10 space-y-3 hover:border-amber-200/40 transition-colors shadow-xl"
+                className="p-8 sm:p-10 bg-white/[0.03] border border-white/10 space-y-3 hover:border-[#C9A84C]/40 transition-colors shadow-xl"
               >
-                <h3 className="font-montserrat font-light text-2xl text-white tracking-[0.05em]">
+                <h3 className="font-cormorant font-light text-2xl text-white tracking-tight">
                   {benefit.title}
                 </h3>
-                <p className="text-white/70 text-sm font-light leading-relaxed">
+                <p className="text-white/70 text-sm font-light leading-relaxed font-dm">
                   {benefit.desc}
                 </p>
               </div>
@@ -441,21 +448,21 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
       {/* ----------------------------------------------------
           7. PROPERTY OWNER TESTIMONIAL
       ---------------------------------------------------- */}
-      <section className="max-w-[1200px] mx-auto px-6 py-20 sm:py-28 text-center">
-        <div className="relative p-10 sm:p-16 rounded-3xl bg-gradient-to-b from-white/[0.04] to-transparent border border-white/15 space-y-6 shadow-2xl">
+      <section className="max-w-[1200px] mx-auto px-6 py-20 sm:py-28 text-center font-dm">
+        <div className="relative p-10 sm:p-16 bg-white/[0.03] border border-white/15 space-y-6 shadow-2xl">
           
-          <span className="text-6xl text-amber-200/40 font-serif leading-none block">“</span>
+          <span className="text-6xl text-[#C9A84C]/50 font-cormorant leading-none block">“</span>
 
-          <blockquote className="font-montserrat font-light text-2xl sm:text-4xl text-white leading-relaxed tracking-[0.03em] max-w-3xl mx-auto">
-            "Having a professional team manage the property has completely changed the way we approach our investment."
+          <blockquote className="font-cormorant font-light italic text-2xl sm:text-4xl text-white leading-relaxed tracking-tight max-w-3xl mx-auto">
+            "Having a professional team manage our portfolio has completely changed our property experience. Outstanding diligence and communication."
           </blockquote>
 
           <div className="pt-4 border-t border-white/10 max-w-xs mx-auto">
-            <span className="text-xs font-semibold tracking-[0.25em] text-amber-200 uppercase block">
+            <span className="text-xs font-semibold tracking-[0.25em] text-[#C9A84C] uppercase block font-dm">
               PRIVATE LANDLORD
             </span>
-            <span className="text-[11px] font-light text-white/50 tracking-wider uppercase block mt-0.5">
-              MAYFAIR &amp; KENSINGTON PORTFOLIO • LONDON
+            <span className="text-[11px] font-light text-white/50 tracking-wider uppercase block mt-0.5 font-dm">
+              MAYFAIR &amp; KENSINGTON PORTFOLIO · LONDON
             </span>
           </div>
 
@@ -465,44 +472,44 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
       {/* ----------------------------------------------------
           8. LANDLORD CTA CONSULTATION FORM
       ---------------------------------------------------- */}
-      <section id="landlord-consultation" className="relative py-24 sm:py-32 overflow-hidden bg-black flex items-center justify-center border-y border-white/15">
+      <section id="landlord-consultation" className="relative py-24 sm:py-32 overflow-hidden bg-black flex items-center justify-center border-y border-white/15 font-dm">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
             src="/properties/london_townhouse.png"
             alt="London Townhouse Exterior at Sunset"
-            className="w-full h-full object-cover filter brightness-[0.4]"
+            className="w-full h-full object-cover filter brightness-[0.35]"
           />
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center space-y-8">
           
-          <span className="text-xs font-semibold tracking-[0.25em] text-amber-200 uppercase block">
+          <span className="text-xs font-semibold tracking-[0.25em] text-[#C9A84C] uppercase block">
             MANAGEMENT CONSULTATION
           </span>
 
-          <h2 className="font-montserrat font-light text-4xl sm:text-6xl lg:text-7xl text-white tracking-[0.05em] leading-tight">
-            READY TO<br />MANAGE YOUR<br />PROPERTY DIFFERENTLY?
+          <h2 className="font-cormorant font-light text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-tight">
+            Ready to manage your <span className="italic text-[#C9A84C] font-normal">property differently?</span>
           </h2>
 
           <p className="text-white/80 text-sm sm:text-base font-light max-w-xl mx-auto leading-relaxed">
-            "Tell us about your property and discover how our management service can work for you."
+            Tell us about your property and discover how our dedicated management service can work for you.
           </p>
 
           {formSubmitted ? (
-            <div className="p-8 rounded-2xl bg-emerald-950/60 border border-emerald-500/40 max-w-md mx-auto space-y-3 backdrop-blur-md animate-fade-in">
-              <CheckCircle2 className="w-10 h-10 text-emerald-400 mx-auto" />
-              <h3 className="font-montserrat font-light text-2xl text-white">Consultation Requested</h3>
-              <p className="text-xs text-white/80 font-light leading-relaxed">
+            <div className="p-8 bg-[#090a14] border border-[#C9A84C]/50 max-w-md mx-auto space-y-3 backdrop-blur-md animate-fade-in">
+              <CheckCircle2 className="w-10 h-10 text-[#C9A84C] mx-auto" />
+              <h3 className="font-cormorant font-light text-2xl text-white">Consultation Requested</h3>
+              <p className="text-xs text-white/80 font-light leading-relaxed font-dm">
                 Thank you. Our senior property manager will reach out within 2 hours to discuss your property requirements.
               </p>
             </div>
           ) : (
-            <form onSubmit={handleConsultationSubmit} className="max-w-xl mx-auto space-y-4 text-left pt-4 bg-black/60 backdrop-blur-xl p-8 rounded-2xl border border-white/20 shadow-2xl">
+            <form onSubmit={handleConsultationSubmit} className="max-w-xl mx-auto space-y-4 text-left pt-4 bg-[#090a14]/90 backdrop-blur-xl p-8 border border-white/20 shadow-2xl">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70 block mb-1.5">
-                    YOUR NAME
+                  <label className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70 block mb-1.5 font-dm">
+                    YOUR NAME *
                   </label>
                   <input
                     type="text"
@@ -510,13 +517,13 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
                     placeholder="Full Name"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 text-xs focus:outline-none focus:border-amber-200 transition-colors"
+                    className="w-full px-4 py-3 bg-white/[0.03] border border-white/10 text-white placeholder-white/40 text-xs focus:outline-none focus:border-[#C9A84C] transition-colors rounded-none font-dm"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70 block mb-1.5">
-                    EMAIL ADDRESS
+                  <label className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70 block mb-1.5 font-dm">
+                    EMAIL ADDRESS *
                   </label>
                   <input
                     type="email"
@@ -524,42 +531,42 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
                     placeholder="email@address.com"
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 text-xs focus:outline-none focus:border-amber-200 transition-colors"
+                    className="w-full px-4 py-3 bg-white/[0.03] border border-white/10 text-white placeholder-white/40 text-xs focus:outline-none focus:border-[#C9A84C] transition-colors rounded-none font-dm"
                   />
                 </div>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
-                  <label className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70 block mb-1.5">
+                  <label className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70 block mb-1.5 font-dm">
                     PHONE NUMBER
                   </label>
                   <input
                     type="tel"
-                    placeholder="+44 7000 000000"
+                    placeholder="+44 20 8574 1700"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 text-xs focus:outline-none focus:border-amber-200 transition-colors"
+                    className="w-full px-4 py-3 bg-white/[0.03] border border-white/10 text-white placeholder-white/40 text-xs focus:outline-none focus:border-[#C9A84C] transition-colors rounded-none font-dm"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70 block mb-1.5">
+                  <label className="text-[10px] font-semibold uppercase tracking-[0.2em] text-white/70 block mb-1.5 font-dm">
                     PROPERTY LOCATION
                   </label>
                   <input
                     type="text"
-                    placeholder="City / Area"
+                    placeholder="e.g. Kensington / W1"
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                    className="w-full px-4 py-3 rounded-xl bg-white/10 border border-white/20 text-white placeholder-white/40 text-xs focus:outline-none focus:border-amber-200 transition-colors"
+                    className="w-full px-4 py-3 bg-white/[0.03] border border-white/10 text-white placeholder-white/40 text-xs focus:outline-none focus:border-[#C9A84C] transition-colors rounded-none font-dm"
                   />
                 </div>
               </div>
 
               <button
                 type="submit"
-                className="w-full py-4 rounded-xl bg-white hover:bg-amber-200 text-black font-semibold text-xs tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-xl active:scale-95 mt-4"
+                className="w-full py-4.5 bg-[#C9A84C] hover:bg-[#E8C878] text-[#090a14] font-semibold text-xs tracking-[0.2em] uppercase transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer shadow-xl rounded-none active:scale-98 mt-4 font-dm"
               >
                 <span>BOOK A CONSULTATION</span>
                 <ArrowRight className="w-4 h-4" />
@@ -573,13 +580,13 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
       {/* ----------------------------------------------------
           9. FAQ
       ---------------------------------------------------- */}
-      <section className="max-w-[1200px] mx-auto px-6 lg:px-12 py-20 sm:py-28">
+      <section className="max-w-[1200px] mx-auto px-6 lg:px-12 py-20 sm:py-28 font-dm">
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
-          <span className="text-xs font-semibold tracking-[0.25em] text-white/50 uppercase block">
+          <span className="text-xs font-semibold tracking-[0.25em] text-[#C9A84C] uppercase block">
             LANDLORD FREQUENT QUESTIONS
           </span>
-          <h2 className="font-montserrat font-light text-3xl sm:text-5xl text-white tracking-[0.05em]">
-            QUESTIONS,<br />ANSWERED.
+          <h2 className="font-cormorant font-light text-4xl sm:text-6xl text-white tracking-tight">
+            Frequently asked <span className="italic text-[#C9A84C] font-normal">questions</span>
           </h2>
         </div>
 
@@ -589,22 +596,22 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
             return (
               <div
                 key={idx}
-                className="rounded-2xl bg-white/[0.03] border border-white/10 overflow-hidden transition-all duration-300"
+                className="bg-white/[0.03] border border-white/10 overflow-hidden transition-all duration-300 rounded-none"
               >
                 <button
                   onClick={() => toggleFaq(idx)}
                   className="w-full p-6 text-left flex items-center justify-between gap-4 cursor-pointer hover:bg-white/[0.02]"
                 >
-                  <span className="font-montserrat font-light text-base sm:text-lg text-white tracking-[0.03em]">
+                  <span className="font-cormorant font-light text-xl sm:text-2xl text-white tracking-tight">
                     {item.question}
                   </span>
-                  <div className={`p-1.5 rounded-full bg-white/10 text-white transition-transform duration-300 ${isOpen ? 'rotate-45 text-amber-200' : ''}`}>
+                  <div className={`p-1.5 text-white transition-transform duration-300 ${isOpen ? 'rotate-45 text-[#C9A84C]' : ''}`}>
                     <Plus className="w-4 h-4" />
                   </div>
                 </button>
 
                 {isOpen && (
-                  <div className="px-6 pb-6 pt-0 text-white/70 text-xs sm:text-sm font-light leading-relaxed border-t border-white/5 font-montserrat animate-fade-in">
+                  <div className="px-6 pb-6 pt-0 text-white/70 text-xs sm:text-sm font-light leading-relaxed border-t border-white/5 font-dm animate-fade-in">
                     {item.answer}
                   </div>
                 )}
@@ -614,37 +621,19 @@ export default function LandlordServicesPage({ onNavigateConsultation, onExplore
         </div>
       </section>
 
-      {/* ----------------------------------------------------
-          10. FINAL CTA
-      ---------------------------------------------------- */}
-      <section className="bg-[#090a14] py-24 sm:py-32 border-t border-white/10 text-center px-6">
-        <div className="max-w-3xl mx-auto space-y-6">
-          <h2 className="font-montserrat font-light text-4xl sm:text-6xl text-white tracking-[0.05em] leading-tight">
-            YOUR PROPERTY.<br />
-            <span className="text-amber-100/90 font-light">OUR PRIORITY.</span>
-          </h2>
-
-          <p className="text-white/60 text-xs sm:text-sm tracking-wider uppercase font-light">
-            Speak with our property management team today.
-          </p>
-
-          <button
-            onClick={scrollToConsultation}
-            className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-white hover:bg-amber-200 text-black text-xs sm:text-sm tracking-[0.25em] font-semibold uppercase transition-all duration-300 cursor-pointer shadow-2xl active:scale-95"
-          >
-            <span>START A CONVERSATION</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
-
-        <div className="max-w-[1500px] mx-auto mt-24 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] text-white/40 tracking-wider uppercase gap-4">
-          <p>© {new Date().getFullYear()} Faith &amp; Co Property Management Ltd. All rights reserved.</p>
-          <div className="flex gap-6">
-            <span className="hover:text-white cursor-pointer" onClick={onExploreProperties}>Browse Residences</span>
-            <span className="hover:text-white cursor-pointer" onClick={scrollToConsultation}>Landlord Portal</span>
-          </div>
-        </div>
-      </section>
+      {/* STANDARD FOOTER */}
+      <StandardFooter
+        onNavigateHome={onNavigateHome}
+        onNavigateProperties={onNavigateProperties || onExploreProperties}
+        onNavigateLandlords={scrollToConsultation}
+        onNavigateRentersRights={onNavigateRentersRights}
+        onNavigateHmoLicensing={onNavigateHmoLicensing}
+        onNavigateGuideToLetting={onNavigateGuideToLetting}
+        onNavigateContact={onNavigateContact}
+        onNavigateRegisterLandlord={onNavigateRegisterLandlord}
+        onNavigateLetWithUs={onNavigateLetWithUs}
+        onNavigateFreeValuation={onNavigateFreeValuation}
+      />
 
       {/* ----------------------------------------------------
           11. STICKY MOBILE CTA BAR

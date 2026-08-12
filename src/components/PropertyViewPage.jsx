@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowLeft, ChevronLeft, ChevronRight, X, Maximize2, Check, MapPin, Calendar, Clock, ShieldCheck, ArrowRight, Compass } from 'lucide-react';
+import StandardFooter from './StandardFooter';
 
 const GALLERY_IMAGES = [
   { id: 'living', title: 'Living Room', src: '/properties/gallery_livingroom.png' },
@@ -278,7 +279,7 @@ export default function PropertyViewPage({ property, onBack, onSelectProperty })
       {/* ----------------------------------------------------
           4. DESCRIPTION
       ---------------------------------------------------- */}
-      <section className="bg-[#17172D] py-20 sm:py-28 border-y border-white/10">
+      <section className="bg-[#090a14] py-20 sm:py-28 border-y border-white/10">
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
@@ -522,7 +523,7 @@ export default function PropertyViewPage({ property, onBack, onSelectProperty })
       {/* ----------------------------------------------------
           8. AVAILABILITY / ENQUIRY
       ---------------------------------------------------- */}
-      <section id="enquiry-section" className="bg-[#17172D] py-20 sm:py-28 border-y border-white/10">
+      <section id="enquiry-section" className="bg-[#090a14] py-20 sm:py-28 border-y border-white/10">
         <div className="max-w-4xl mx-auto px-6 text-center space-y-8">
           
           <span className="text-xs font-semibold tracking-[0.25em] text-amber-200 uppercase block">
@@ -681,15 +682,12 @@ export default function PropertyViewPage({ property, onBack, onSelectProperty })
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
-
-        <div className="max-w-[1500px] mx-auto mt-20 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] text-white/40 tracking-wider uppercase gap-4">
-          <p>© {new Date().getFullYear()} Faith &amp; Co Property Management Ltd.</p>
-          <div className="flex gap-6">
-            <span className="hover:text-white cursor-pointer" onClick={onBack}>Browse Residences</span>
-            <span className="hover:text-white cursor-pointer" onClick={scrollToEnquiry}>Private Viewing</span>
-          </div>
-        </div>
       </section>
+
+      {/* STANDARD FOOTER */}
+      <StandardFooter
+        onNavigateProperties={onBack}
+      />
 
       {/* ----------------------------------------------------
           11. STICKY MOBILE CTA BAR

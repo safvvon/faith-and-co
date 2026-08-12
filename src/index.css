@@ -5,6 +5,16 @@
   font-family: 'Montserrat', 'Outfit', system-ui, -apple-system, sans-serif;
 }
 
+.font-cormorant {
+  font-family: 'Montserrat', 'Outfit', system-ui, -apple-system, sans-serif;
+  letter-spacing: 0.05em;
+  font-weight: 300;
+}
+
+.font-dm {
+  font-family: 'Montserrat', 'Outfit', system-ui, -apple-system, sans-serif;
+}
+
 @font-face {
   font-family: 'IvyPresto Headline';
   src: local('IvyPresto Headline Medium'), local('IvyPresto-HeadlineMedium'), local('IvyPresto Headline SemiBold'), local('IvyPresto-HeadlineSemiBold'), local('IvyPresto Headline'), local('IvyPresto-Headline'), local('IvyPresto Display'), local('IvyPresto');
@@ -48,29 +58,27 @@ html, body, #root {
   font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
-.no-scrollbar::-webkit-scrollbar {
-  display: none;
-}
-/* Hide scrollbar for IE, Edge and Firefox */
-.no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+/* Globally hide scrollbars across the entire website for Chrome, Safari, Edge, Firefox, and Opera */
+::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
-/* Custom scrollbar for property details modal */
-.custom-scrollbar::-webkit-scrollbar {
-  width: 6px;
+html, body, #root, * {
+  -ms-overflow-style: none !important;  /* IE and Edge */
+  scrollbar-width: none !important;  /* Firefox */
 }
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+
+/* Utility class to hide scrollbar explicitly */
+.no-scrollbar::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 3px;
-}
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: rgba(253, 230, 138, 0.5);
+.no-scrollbar {
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
 }
 
 @keyframes fadeIn {
@@ -99,5 +107,62 @@ html, body, #root {
 .animate-fade-up {
   animation: fadeUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
+
+@keyframes floatSlow {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-float-slow {
+  animation: floatSlow 5s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { border-color: rgba(201, 168, 76, 0.3); box-shadow: 0 0 0 0 rgba(201, 168, 76, 0); }
+  50% { border-color: rgba(201, 168, 76, 0.8); box-shadow: 0 0 20px 2px rgba(201, 168, 76, 0.15); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s ease-in-out infinite;
+}
+
+@keyframes slideInRight {
+  from { opacity: 0; transform: translateX(30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scaleUp {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.animate-scale-up {
+  animation: scaleUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, rgba(201,168,76,0.1) 0%, rgba(201,168,76,0.4) 50%, rgba(201,168,76,0.1) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 3s infinite;
+}
+
 
 

@@ -1,44 +1,25 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 
-export default function HomeFooterCta({ onStartConversation, onBrowseResidences, onLandlordPortal }) {
+export default function HomeFooterCta({ onStartConversation, onBrowseResidences, onLandlordPortal, onRentersRights, onHmoLicensing, onGuideToLetting, onRegisterLandlord }) {
   return (
-    <section className="w-full bg-[#090a14] py-24 sm:py-32 border-t border-white/10 text-center px-6 font-montserrat">
+    <section className="w-full bg-[#090a14] py-24 sm:py-32 border-t border-white/10 text-center px-6 font-dm">
       <div className="max-w-3xl mx-auto space-y-6">
-        <h2 className="font-montserrat font-light text-4xl sm:text-6xl text-white tracking-[0.05em] leading-tight">
-          YOUR PROPERTY.<br />
-          <span className="text-amber-100/90 font-light">OUR PRIORITY.</span>
+        <h2 className="font-cormorant font-light text-4xl sm:text-6xl text-white tracking-tight leading-tight">
+          Your property. <span className="italic text-[#C9A84C] font-normal">Our priority.</span>
         </h2>
 
-        <p className="text-white/60 text-xs sm:text-sm tracking-wider uppercase font-light font-montserrat">
-          SPEAK WITH OUR PROPERTY MANAGEMENT TEAM TODAY.
+        <p className="text-white/60 text-xs sm:text-sm tracking-wider uppercase font-light font-dm">
+          Speak with our property management team today.
         </p>
 
         <button
           onClick={onStartConversation}
-          className="inline-flex items-center gap-3 px-10 py-4 rounded-full bg-white hover:bg-amber-200 text-black text-xs sm:text-sm tracking-[0.25em] font-semibold uppercase transition-all duration-300 cursor-pointer shadow-2xl active:scale-95"
+          className="inline-flex items-center gap-3 px-10 py-4.5 bg-[#C9A84C] hover:bg-[#E8C878] text-[#090a14] text-xs sm:text-sm tracking-[0.25em] font-semibold uppercase transition-all duration-300 cursor-pointer shadow-2xl active:scale-95 rounded-none font-dm"
         >
           <span>START A CONVERSATION</span>
           <ArrowRight className="w-4 h-4" />
         </button>
-      </div>
-
-      <div className="max-w-[1500px] mx-auto mt-24 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-[11px] text-white/40 tracking-wider uppercase gap-4 font-montserrat">
-        <p>© {new Date().getFullYear()} FAITH &amp; CO PROPERTY MANAGEMENT LTD. ALL RIGHTS RESERVED.</p>
-        <div className="flex gap-6">
-          <span 
-            className="hover:text-white cursor-pointer transition-colors" 
-            onClick={onBrowseResidences}
-          >
-            BROWSE RESIDENCES
-          </span>
-          <span 
-            className="hover:text-white cursor-pointer transition-colors" 
-            onClick={onLandlordPortal}
-          >
-            LANDLORD PORTAL
-          </span>
-        </div>
       </div>
     </section>
   );

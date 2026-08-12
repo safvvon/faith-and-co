@@ -1,5 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { SlidersHorizontal, RotateCcw, ChevronDown, ArrowRight, ShieldCheck, X } from 'lucide-react';
+import StandardFooter from './StandardFooter';
+import HomeFooterCta from './HomeFooterCta';
 import {
   propertiesData,
   LOCATIONS_LIST,
@@ -10,7 +12,19 @@ import {
 } from '../data/propertiesData';
 import PropertyDetailsModal from './PropertyDetailsModal';
 
-export default function PropertiesPage({ onSelectProperty }) {
+export default function PropertiesPage({
+  onSelectProperty,
+  onNavigateHome,
+  onNavigateProperties,
+  onNavigateLandlords,
+  onNavigateRentersRights,
+  onNavigateHmoLicensing,
+  onNavigateGuideToLetting,
+  onNavigateContact,
+  onNavigateRegisterLandlord,
+  onNavigateLetWithUs,
+  onNavigateFreeValuation
+}) {
   // Filter States
   const [selectedLocation, setSelectedLocation] = useState('All Locations');
   const [selectedType, setSelectedType] = useState('All Types');
@@ -125,23 +139,23 @@ export default function PropertiesPage({ onSelectProperty }) {
   };
 
   return (
-    <div id="explore-properties" className="w-full min-h-screen bg-[#090a14] text-white font-montserrat select-none">
+    <div id="explore-properties" className="w-full min-h-screen bg-[#090a14] text-white font-dm select-none">
       
       {/* ----------------------------------------------------
           1. HERO HEADER AREA
       ---------------------------------------------------- */}
-      <section className="w-full bg-gradient-to-b from-[#17172D] to-[#242438] pt-28 sm:pt-36 pb-16 sm:pb-24 px-6 sm:px-12 lg:px-16 border-b border-white/10 text-center">
-        <div className="max-w-4xl mx-auto space-y-4">
-          <span className="text-xs uppercase tracking-[0.25em] font-semibold text-amber-200 block font-montserrat">
-            MANAGED PORTFOLIO
+      <section className="relative w-full bg-[#090a14] pt-28 sm:pt-36 pb-16 sm:pb-24 px-6 sm:px-12 lg:px-16 border-b border-white/10 text-center overflow-hidden">
+        <div className="max-w-4xl mx-auto relative z-10 space-y-4 animate-fade-up font-dm">
+          <span className="text-xs uppercase tracking-[0.25em] font-semibold text-[#C9A84C] block font-dm animate-float-slow">
+            MANAGED RESIDENCES
           </span>
 
-          <h1 className="font-montserrat font-light text-4xl sm:text-6xl lg:text-7xl text-white tracking-[0.05em] leading-tight">
-            EXPLORE PROPERTIES
+          <h1 className="font-cormorant font-light text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-[1.1]">
+            Explore our <span className="italic text-[#C9A84C] font-normal">managed portfolio</span>
           </h1>
 
-          <p className="text-white/80 text-sm sm:text-lg font-light tracking-wide max-w-2xl mx-auto font-montserrat leading-relaxed">
-            Discover thoughtfully managed homes across some of the UK's most desirable locations.
+          <p className="text-white/70 text-sm sm:text-lg font-light tracking-wide max-w-2xl mx-auto font-dm leading-relaxed">
+            Discover thoughtfully managed homes across London &amp; the Home Counties — from high-yield residential lets to specialist HMO and corporate options.
           </p>
         </div>
       </section>
@@ -149,97 +163,97 @@ export default function PropertiesPage({ onSelectProperty }) {
       {/* ----------------------------------------------------
           2. PROPERTY SEARCH / FILTER AREA (DESKTOP & MOBILE)
       ---------------------------------------------------- */}
-      <section className="w-full bg-[#121324] border-b border-white/10 sticky top-0 z-30 backdrop-blur-xl">
-        <div className="max-w-[1600px] mx-auto px-6 lg:px-12 py-4">
+      <section className="w-full bg-[#090a14]/95 border-b border-white/10 sticky top-0 z-30 backdrop-blur-xl">
+        <div className="max-w-[1450px] mx-auto px-6 lg:px-12 py-4">
           
           {/* Desktop Filter Bar */}
-          <div className="hidden lg:flex items-center justify-between gap-4">
+          <div className="hidden lg:flex items-center justify-between gap-4 font-dm">
             
             {/* Filter Dropdowns Row */}
             <div className="flex items-center gap-3 flex-1 flex-wrap">
               
               {/* Location */}
               <div className="flex flex-col gap-1">
-                <label className="text-[9px] uppercase tracking-[1.5px] text-white/50 font-semibold">LOCATION</label>
+                <label className="text-[9px] uppercase tracking-[1.5px] text-white/50 font-semibold font-dm">LOCATION</label>
                 <div className="relative">
                   <select
                     value={selectedLocation}
                     onChange={(e) => setSelectedLocation(e.target.value)}
-                    className="appearance-none bg-[#1c1d33] border border-white/15 rounded-md px-3.5 py-2 pr-8 text-xs text-white focus:outline-none focus:border-amber-200 cursor-pointer transition-colors"
+                    className="appearance-none bg-[#090a14] border border-white/15 rounded-none px-3.5 py-2 pr-8 text-xs text-white focus:outline-none focus:border-[#C9A84C] cursor-pointer transition-colors font-dm"
                   >
                     {LOCATIONS_LIST.map((loc) => (
-                      <option key={loc} value={loc} className="bg-[#17172D] text-white">{loc}</option>
+                      <option key={loc} value={loc} className="bg-[#090a14] text-white">{loc}</option>
                     ))}
                   </select>
-                  <ChevronDown className="w-3.5 h-3.5 text-white/50 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-3.5 h-3.5 text-[#C9A84C] absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
               {/* Property Type */}
               <div className="flex flex-col gap-1">
-                <label className="text-[9px] uppercase tracking-[1.5px] text-white/50 font-semibold">TYPE</label>
+                <label className="text-[9px] uppercase tracking-[1.5px] text-white/50 font-semibold font-dm">TYPE</label>
                 <div className="relative">
                   <select
                     value={selectedType}
                     onChange={(e) => setSelectedType(e.target.value)}
-                    className="appearance-none bg-[#1c1d33] border border-white/15 rounded-md px-3.5 py-2 pr-8 text-xs text-white focus:outline-none focus:border-amber-200 cursor-pointer transition-colors"
+                    className="appearance-none bg-[#090a14] border border-white/15 rounded-none px-3.5 py-2 pr-8 text-xs text-white focus:outline-none focus:border-[#C9A84C] cursor-pointer transition-colors font-dm"
                   >
                     {PROPERTY_TYPES.map((type) => (
-                      <option key={type} value={type} className="bg-[#17172D] text-white">{type}</option>
+                      <option key={type} value={type} className="bg-[#090a14] text-white">{type}</option>
                     ))}
                   </select>
-                  <ChevronDown className="w-3.5 h-3.5 text-white/50 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-3.5 h-3.5 text-[#C9A84C] absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
               {/* Bedrooms */}
               <div className="flex flex-col gap-1">
-                <label className="text-[9px] uppercase tracking-[1.5px] text-white/50 font-semibold">BEDROOMS</label>
+                <label className="text-[9px] uppercase tracking-[1.5px] text-white/50 font-semibold font-dm">BEDROOMS</label>
                 <div className="relative">
                   <select
                     value={selectedBeds}
                     onChange={(e) => setSelectedBeds(Number(e.target.value))}
-                    className="appearance-none bg-[#1c1d33] border border-white/15 rounded-md px-3.5 py-2 pr-8 text-xs text-white focus:outline-none focus:border-amber-200 cursor-pointer transition-colors"
+                    className="appearance-none bg-[#090a14] border border-white/15 rounded-none px-3.5 py-2 pr-8 text-xs text-white focus:outline-none focus:border-[#C9A84C] cursor-pointer transition-colors font-dm"
                   >
                     {BEDROOM_OPTIONS.map((bed) => (
-                      <option key={bed.label} value={bed.value} className="bg-[#17172D] text-white">{bed.label}</option>
+                      <option key={bed.label} value={bed.value} className="bg-[#090a14] text-white">{bed.label}</option>
                     ))}
                   </select>
-                  <ChevronDown className="w-3.5 h-3.5 text-white/50 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-3.5 h-3.5 text-[#C9A84C] absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
               {/* Price Range */}
               <div className="flex flex-col gap-1">
-                <label className="text-[9px] uppercase tracking-[1.5px] text-white/50 font-semibold">PRICE RANGE</label>
+                <label className="text-[9px] uppercase tracking-[1.5px] text-white/50 font-semibold font-dm">PRICE RANGE</label>
                 <div className="relative">
                   <select
                     value={selectedPriceIdx}
                     onChange={(e) => setSelectedPriceIdx(Number(e.target.value))}
-                    className="appearance-none bg-[#1c1d33] border border-white/15 rounded-md px-3.5 py-2 pr-8 text-xs text-white focus:outline-none focus:border-amber-200 cursor-pointer transition-colors"
+                    className="appearance-none bg-[#090a14] border border-white/15 rounded-none px-3.5 py-2 pr-8 text-xs text-white focus:outline-none focus:border-[#C9A84C] cursor-pointer transition-colors font-dm"
                   >
                     {PRICE_RANGES.map((range, idx) => (
-                      <option key={range.label} value={idx} className="bg-[#17172D] text-white">{range.label}</option>
+                      <option key={range.label} value={idx} className="bg-[#090a14] text-white">{range.label}</option>
                     ))}
                   </select>
-                  <ChevronDown className="w-3.5 h-3.5 text-white/50 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-3.5 h-3.5 text-[#C9A84C] absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
               {/* Availability */}
               <div className="flex flex-col gap-1">
-                <label className="text-[9px] uppercase tracking-[1.5px] text-white/50 font-semibold">AVAILABILITY</label>
+                <label className="text-[9px] uppercase tracking-[1.5px] text-white/50 font-semibold font-dm">AVAILABILITY</label>
                 <div className="relative">
                   <select
                     value={selectedAvailability}
                     onChange={(e) => setSelectedAvailability(e.target.value)}
-                    className="appearance-none bg-[#1c1d33] border border-white/15 rounded-md px-3.5 py-2 pr-8 text-xs text-white focus:outline-none focus:border-amber-200 cursor-pointer transition-colors"
+                    className="appearance-none bg-[#090a14] border border-white/15 rounded-none px-3.5 py-2 pr-8 text-xs text-white focus:outline-none focus:border-[#C9A84C] cursor-pointer transition-colors font-dm"
                   >
                     {AVAILABILITY_OPTIONS.map((avail) => (
-                      <option key={avail} value={avail} className="bg-[#17172D] text-white">{avail}</option>
+                      <option key={avail} value={avail} className="bg-[#090a14] text-white">{avail}</option>
                     ))}
                   </select>
-                  <ChevronDown className="w-3.5 h-3.5 text-white/50 absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
+                  <ChevronDown className="w-3.5 h-3.5 text-[#C9A84C] absolute right-2.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 </div>
               </div>
 
@@ -249,17 +263,17 @@ export default function PropertiesPage({ onSelectProperty }) {
             <div className="flex items-center gap-3 pt-3">
               <button
                 onClick={handleApplyFilters}
-                className="px-5 py-2.5 rounded-md bg-white hover:bg-amber-200 text-black text-xs tracking-[1.5px] font-semibold uppercase transition-all duration-300 cursor-pointer shadow-md active:scale-95"
+                className="px-5 py-2.5 bg-[#C9A84C] hover:bg-[#E8C878] text-[#090a14] text-xs tracking-[1.5px] font-semibold uppercase transition-all duration-300 cursor-pointer shadow-md active:scale-95 rounded-none font-dm"
               >
                 APPLY FILTERS
               </button>
 
               <button
                 onClick={handleResetFilters}
-                className="p-2.5 rounded-md bg-[#1c1d33] hover:bg-white/10 border border-white/15 text-white/70 hover:text-white transition-colors cursor-pointer"
+                className="p-2.5 bg-white/10 hover:bg-white/20 border border-white/15 text-white/70 hover:text-white transition-colors cursor-pointer rounded-none"
                 title="Reset Filters"
               >
-                <RotateCcw className="w-4 h-4" />
+                <RotateCcw className="w-4 h-4 text-[#C9A84C]" />
               </button>
             </div>
 
@@ -457,52 +471,52 @@ export default function PropertiesPage({ onSelectProperty }) {
           </div>
         ) : (
           /* 4-Column Tall Editorial Grid (~3:5 ratio) */
-          <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 transition-opacity duration-300 ${
+          <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 transition-opacity duration-300 ${
             isFiltering ? 'opacity-30' : 'opacity-100'
           }`}>
             {displayedProperties.map((property) => (
               <article
                 key={property.id}
                 onClick={() => handleCardClick(property)}
-                className="group relative w-full aspect-[3/5] overflow-hidden bg-[#101124] rounded-sm cursor-pointer flex flex-col justify-between shadow-2xl transition-all duration-500 border border-white/5 hover:border-amber-200/40"
+                className="group relative w-full aspect-[3/5] overflow-hidden bg-[#090a14] rounded-sm cursor-pointer flex flex-col justify-between shadow-2xl transition-all duration-500 border border-white/10 hover:border-[#C9A84C] hover:-translate-y-2"
               >
                 {/* Full Bleed High Quality Photography */}
                 <img
                   src={property.image}
                   alt={property.fullName || property.title}
-                  className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.04] group-hover:brightness-105"
+                  className="absolute inset-0 w-full h-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.05]"
                   loading="lazy"
                 />
 
                 {/* Subtle Gradient Bottom Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#090a14]/95 via-black/30 to-black/20 transition-opacity duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#090a14] via-[#090a14]/60 to-black/30 transition-opacity duration-500" />
 
                 {/* Top Status Tag */}
                 <div className="relative z-10 p-5 flex justify-between items-start">
-                  <span className={`px-3 py-1 rounded-full text-[10px] font-semibold tracking-[0.18em] uppercase backdrop-blur-md border ${
+                  <span className={`px-3 py-1 text-[10px] font-semibold tracking-[0.2em] uppercase backdrop-blur-md border font-dm ${
                     property.availability === 'Available Now'
-                      ? 'bg-emerald-950/70 border-emerald-500/40 text-emerald-300'
-                      : 'bg-amber-950/70 border-amber-500/40 text-amber-200'
+                      ? 'bg-emerald-950/80 border-emerald-500/40 text-emerald-300'
+                      : 'bg-[#090a14]/80 border-[#C9A84C]/50 text-[#C9A84C]'
                   }`}>
                     {property.availability}
                   </span>
                 </div>
 
                 {/* Centered Editorial Typography Over Image */}
-                <div className="relative z-10 p-6 sm:p-8 text-center flex flex-col items-center justify-end w-full transition-transform duration-500 ease-out group-hover:-translate-y-2">
-                  <span className="text-[10px] font-semibold tracking-[0.25em] text-amber-200/90 uppercase block mb-1">
+                <div className="relative z-10 p-6 sm:p-8 text-center flex flex-col items-center justify-end w-full transition-transform duration-500 ease-out font-dm">
+                  <span className="text-[10px] font-semibold tracking-[0.25em] text-[#C9A84C] uppercase block mb-1 font-dm animate-float-slow">
                     {property.title}
                   </span>
 
-                  <h3 className="font-montserrat font-light text-2xl sm:text-3xl text-white drop-shadow-md mb-2 tracking-[0.05em] leading-tight">
+                  <h3 className="font-cormorant font-light text-2xl sm:text-3xl text-white drop-shadow-md mb-2 tracking-tight leading-tight group-hover:text-[#C9A84C] transition-colors">
                     {property.fullName}
                   </h3>
 
-                  <div className="text-xs uppercase tracking-[1.5px] font-sans font-medium text-white/85 mb-1">
+                  <div className="text-xs uppercase tracking-[1.5px] font-dm font-light text-white/80 mb-1">
                     {property.specs}
                   </div>
 
-                  <div className="text-sm sm:text-base font-semibold tracking-[1.5px] font-sans text-white">
+                  <div className="text-sm sm:text-base font-semibold tracking-wider font-dm text-[#C9A84C]">
                     {property.pcm}
                   </div>
                 </div>
@@ -513,18 +527,32 @@ export default function PropertiesPage({ onSelectProperty }) {
 
         {/* Load More Button */}
         {hasMore && (
-          <div className="pt-16 text-center">
+          <div className="pt-16 text-center font-dm">
             <button
               onClick={() => setVisibleCount((prev) => prev + 8)}
-              className="inline-flex items-center gap-3 px-8 py-3.5 rounded-full bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs tracking-[0.2em] font-semibold uppercase backdrop-blur-md transition-all duration-300 cursor-pointer shadow-lg active:scale-95"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-xs tracking-[0.2em] font-semibold uppercase transition-all duration-300 cursor-pointer shadow-lg active:scale-95 rounded-none font-dm"
             >
               <span>LOAD MORE PROPERTIES</span>
-              <ChevronDown className="w-4 h-4 text-amber-200" />
+              <ChevronDown className="w-4 h-4 text-[#C9A84C]" />
             </button>
           </div>
         )}
 
       </section>
+
+      {/* STANDARD FOOTER */}
+      <StandardFooter
+        onNavigateHome={onNavigateHome}
+        onNavigateProperties={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        onNavigateLandlords={onNavigateLandlords}
+        onNavigateRentersRights={onNavigateRentersRights}
+        onNavigateHmoLicensing={onNavigateHmoLicensing}
+        onNavigateGuideToLetting={onNavigateGuideToLetting}
+        onNavigateContact={onNavigateContact}
+        onNavigateRegisterLandlord={onNavigateRegisterLandlord}
+        onNavigateLetWithUs={onNavigateLetWithUs}
+        onNavigateFreeValuation={onNavigateFreeValuation}
+      />
 
       {/* Property Details Modal Fallback */}
       {selectedPropertyModal && (

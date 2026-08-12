@@ -3,15 +3,23 @@ import GlobalNavbar from './components/GlobalNavbar';
 import VideoOnlyPlayer from './components/VideoOnlyPlayer';
 import HomePropertiesGrid from './components/HomePropertiesGrid';
 import PropertiesPage from './components/PropertiesPage';
+import AvailablePropertiesPage from './components/AvailablePropertiesPage';
 import PropertyViewPage from './components/PropertyViewPage';
+import StandardFooter from './components/StandardFooter';
 import LandlordServicesPage from './components/LandlordServicesPage';
 import AboutUsPage from './components/AboutUsPage';
 import ContactPage from './components/ContactPage';
+import RentersRightsPage from './components/RentersRightsPage';
+import HmoLicensingPage from './components/HmoLicensingPage';
+import GuideToLettingPage from './components/GuideToLettingPage';
+import RegisterLandlordPage from './components/RegisterLandlordPage';
+import LetWithUsPage from './components/LetWithUsPage';
+import FreeValuationPage from './components/FreeValuationPage';
 import HomeFooterCta from './components/HomeFooterCta';
 import { videoList } from './data/videoData';
 
 export default function App() {
-  const [activeView, setActiveView] = useState('main'); // 'main' | 'properties' | 'propertyView' | 'landlords' | 'about' | 'contact'
+  const [activeView, setActiveView] = useState('main'); // 'main' | 'properties' | 'propertyView' | 'landlords' | 'about' | 'contact' | 'rentersRights' | 'hmoLicensing' | 'guideToLetting' | 'registerLandlord' | 'letWithUs' | 'freeValuation'
   const [selectedPropertyView, setSelectedPropertyView] = useState(null);
 
   const handleNavigateHome = () => {
@@ -56,6 +64,42 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleNavigateRentersRights = () => {
+    setSelectedPropertyView(null);
+    setActiveView('rentersRights');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateHmoLicensing = () => {
+    setSelectedPropertyView(null);
+    setActiveView('hmoLicensing');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateGuideToLetting = () => {
+    setSelectedPropertyView(null);
+    setActiveView('guideToLetting');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateRegisterLandlord = () => {
+    setSelectedPropertyView(null);
+    setActiveView('registerLandlord');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateLetWithUs = () => {
+    setSelectedPropertyView(null);
+    setActiveView('letWithUs');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleNavigateFreeValuation = () => {
+    setSelectedPropertyView(null);
+    setActiveView('freeValuation');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   const handleSelectProperty = (property) => {
     setSelectedPropertyView(property);
     setActiveView('propertyView');
@@ -64,7 +108,7 @@ export default function App() {
 
   return (
     <main className="w-full min-h-screen bg-[#090a14] overflow-x-hidden relative">
-      {/* Persistent Global Navbar with top-right 3-line menu */}
+      {/* Show Global Navbar on ALL views */}
       <GlobalNavbar
         onNavigateHome={handleNavigateHome}
         onNavigateProperties={handleNavigateProperties}
@@ -72,27 +116,148 @@ export default function App() {
         onNavigateLandlords={handleNavigateLandlords}
         onNavigateAbout={handleNavigateAbout}
         onNavigateContact={handleNavigateContact}
+        onNavigateRentersRights={handleNavigateRentersRights}
+        onNavigateHmoLicensing={handleNavigateHmoLicensing}
+        onNavigateGuideToLetting={handleNavigateGuideToLetting}
+        onNavigateRegisterLandlord={handleNavigateRegisterLandlord}
+        onNavigateLetWithUs={handleNavigateLetWithUs}
+        onNavigateFreeValuation={handleNavigateFreeValuation}
       />
 
-      {activeView === 'properties' ? (
+      {activeView === 'freeValuation' ? (
+        <FreeValuationPage
+          onNavigateHome={handleNavigateHome}
+          onNavigateLandlords={handleNavigateLandlords}
+          onNavigateContact={handleNavigateContact}
+          onNavigateProperties={handleNavigateProperties}
+          onNavigateRentersRights={handleNavigateRentersRights}
+          onNavigateHmoLicensing={handleNavigateHmoLicensing}
+          onNavigateGuideToLetting={handleNavigateGuideToLetting}
+          onNavigateRegisterLandlord={handleNavigateRegisterLandlord}
+          onNavigateLetWithUs={handleNavigateLetWithUs}
+          onNavigateFreeValuation={handleNavigateFreeValuation}
+        />
+      ) : activeView === 'letWithUs' ? (
+        <LetWithUsPage
+          onNavigateHome={handleNavigateHome}
+          onNavigateLandlords={handleNavigateLandlords}
+          onBookValuation={handleNavigateFreeValuation}
+          onContactTeam={handleNavigateContact}
+          onRegisterLandlord={handleNavigateRegisterLandlord}
+          onBrowseResidences={handleNavigateProperties}
+          onNavigateRentersRights={handleNavigateRentersRights}
+          onNavigateHmoLicensing={handleNavigateHmoLicensing}
+          onNavigateGuideToLetting={handleNavigateGuideToLetting}
+          onNavigateContact={handleNavigateContact}
+          onNavigateLetWithUs={handleNavigateLetWithUs}
+          onNavigateFreeValuation={handleNavigateFreeValuation}
+        />
+      ) : activeView === 'registerLandlord' ? (
+        <RegisterLandlordPage
+          onNavigateHome={handleNavigateHome}
+          onNavigateLandlords={handleNavigateLandlords}
+          onNavigateContact={handleNavigateContact}
+          onNavigateProperties={handleNavigateProperties}
+          onNavigateRentersRights={handleNavigateRentersRights}
+          onNavigateHmoLicensing={handleNavigateHmoLicensing}
+          onNavigateGuideToLetting={handleNavigateGuideToLetting}
+          onNavigateRegisterLandlord={handleNavigateRegisterLandlord}
+          onNavigateLetWithUs={handleNavigateLetWithUs}
+          onNavigateFreeValuation={handleNavigateFreeValuation}
+        />
+      ) : activeView === 'guideToLetting' ? (
+        <GuideToLettingPage
+          onNavigateHome={handleNavigateHome}
+          onNavigateLandlords={handleNavigateLandlords}
+          onNavigateRentersRights={handleNavigateRentersRights}
+          onNavigateHmoLicensing={handleNavigateHmoLicensing}
+          onBookValuation={handleNavigateFreeValuation}
+          onNavigateContact={handleNavigateContact}
+          onNavigateProperties={handleNavigateProperties}
+          onNavigateGuideToLetting={handleNavigateGuideToLetting}
+          onNavigateRegisterLandlord={handleNavigateRegisterLandlord}
+          onNavigateLetWithUs={handleNavigateLetWithUs}
+          onNavigateFreeValuation={handleNavigateFreeValuation}
+        />
+      ) : activeView === 'hmoLicensing' ? (
+        <HmoLicensingPage
+          onNavigateHome={handleNavigateHome}
+          onNavigateLandlords={handleNavigateLandlords}
+          onNavigateRentersRights={handleNavigateRentersRights}
+          onBookConsultation={handleNavigateFreeValuation}
+          onNavigateContact={handleNavigateContact}
+          onNavigateProperties={handleNavigateProperties}
+          onNavigateHmoLicensing={handleNavigateHmoLicensing}
+          onNavigateGuideToLetting={handleNavigateGuideToLetting}
+          onNavigateRegisterLandlord={handleNavigateRegisterLandlord}
+          onNavigateLetWithUs={handleNavigateLetWithUs}
+          onNavigateFreeValuation={handleNavigateFreeValuation}
+        />
+      ) : activeView === 'rentersRights' ? (
+        <RentersRightsPage
+          onNavigateHome={handleNavigateHome}
+          onNavigateLandlords={handleNavigateLandlords}
+          onNavigateHmoLicensing={handleNavigateHmoLicensing}
+          onBookValuation={handleNavigateFreeValuation}
+          onNavigateContact={handleNavigateContact}
+          onNavigateProperties={handleNavigateProperties}
+          onNavigateRentersRights={handleNavigateRentersRights}
+          onNavigateGuideToLetting={handleNavigateGuideToLetting}
+          onNavigateRegisterLandlord={handleNavigateRegisterLandlord}
+          onNavigateLetWithUs={handleNavigateLetWithUs}
+          onNavigateFreeValuation={handleNavigateFreeValuation}
+        />
+      ) : activeView === 'properties' ? (
         <PropertiesPage
           onSelectProperty={handleSelectProperty}
+          onNavigateHome={handleNavigateHome}
+          onNavigateProperties={handleNavigateProperties}
+          onNavigateLandlords={handleNavigateLandlords}
+          onNavigateRentersRights={handleNavigateRentersRights}
+          onNavigateHmoLicensing={handleNavigateHmoLicensing}
+          onNavigateGuideToLetting={handleNavigateGuideToLetting}
+          onNavigateContact={handleNavigateContact}
+          onNavigateRegisterLandlord={handleNavigateRegisterLandlord}
+          onNavigateLetWithUs={handleNavigateLetWithUs}
+          onNavigateFreeValuation={handleNavigateFreeValuation}
         />
       ) : activeView === 'contact' ? (
         <ContactPage
+          onNavigateHome={handleNavigateHome}
           onExploreProperties={handleNavigateProperties}
           onNavigateLandlords={handleNavigateLandlords}
+          onNavigateRentersRights={handleNavigateRentersRights}
+          onNavigateHmoLicensing={handleNavigateHmoLicensing}
+          onNavigateGuideToLetting={handleNavigateGuideToLetting}
+          onNavigateRegisterLandlord={handleNavigateRegisterLandlord}
+          onNavigateLetWithUs={handleNavigateLetWithUs}
+          onNavigateFreeValuation={handleNavigateFreeValuation}
         />
       ) : activeView === 'about' ? (
         <AboutUsPage
+          onNavigateHome={handleNavigateHome}
           onNavigateLandlords={handleNavigateLandlords}
           onExploreProperties={handleNavigateProperties}
           onNavigateEnquiry={handleNavigateContact}
+          onNavigateRentersRights={handleNavigateRentersRights}
+          onNavigateHmoLicensing={handleNavigateHmoLicensing}
+          onNavigateGuideToLetting={handleNavigateGuideToLetting}
+          onNavigateRegisterLandlord={handleNavigateRegisterLandlord}
+          onNavigateLetWithUs={handleNavigateLetWithUs}
+          onNavigateFreeValuation={handleNavigateFreeValuation}
         />
       ) : activeView === 'landlords' ? (
         <LandlordServicesPage
+          onNavigateHome={handleNavigateHome}
           onNavigateConsultation={() => document.getElementById('landlord-consultation')?.scrollIntoView({ behavior: 'smooth' })}
           onExploreProperties={handleNavigateProperties}
+          onNavigateRentersRights={handleNavigateRentersRights}
+          onNavigateHmoLicensing={handleNavigateHmoLicensing}
+          onNavigateGuideToLetting={handleNavigateGuideToLetting}
+          onNavigateRegisterLandlord={handleNavigateRegisterLandlord}
+          onNavigateLetWithUs={handleNavigateLetWithUs}
+          onNavigateFreeValuation={handleNavigateFreeValuation}
+          onNavigateContact={handleNavigateContact}
         />
       ) : activeView === 'propertyView' && selectedPropertyView ? (
         <PropertyViewPage
@@ -115,6 +280,25 @@ export default function App() {
             onStartConversation={handleNavigateContact}
             onBrowseResidences={handleNavigateProperties}
             onLandlordPortal={handleNavigateLandlords}
+            onRentersRights={handleNavigateRentersRights}
+            onHmoLicensing={handleNavigateHmoLicensing}
+            onGuideToLetting={handleNavigateGuideToLetting}
+            onRegisterLandlord={handleNavigateRegisterLandlord}
+            onLetWithUs={handleNavigateLetWithUs}
+          />
+
+          {/* Standard Footer */}
+          <StandardFooter
+            onNavigateHome={handleNavigateHome}
+            onNavigateProperties={handleNavigateProperties}
+            onNavigateLandlords={handleNavigateLandlords}
+            onNavigateRentersRights={handleNavigateRentersRights}
+            onNavigateHmoLicensing={handleNavigateHmoLicensing}
+            onNavigateGuideToLetting={handleNavigateGuideToLetting}
+            onNavigateContact={handleNavigateContact}
+            onNavigateRegisterLandlord={handleNavigateRegisterLandlord}
+            onNavigateLetWithUs={handleNavigateLetWithUs}
+            onNavigateFreeValuation={handleNavigateFreeValuation}
           />
         </>
       )}
