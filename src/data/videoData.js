@@ -4,21 +4,21 @@ export const videoList = [
     title: "Diverse UK Architecture",
     subtitle: "Architectural Showcase",
     category: "Featured Collection",
-    src: "/videos/video1.mp4",
-    description: "Explore diverse UK architecture spanning classic and contemporary designs.",
-    tag: "01 / 03 — ARCHITECTURE",
+    src: "/landing/erasio.mp4",
+    description: "Explore smooth image transitions and diverse UK architecture spanning classic and contemporary designs across London.",
+    tag: "01 / 05 — ARCHITECTURE",
     primaryCta: "Explore Collection",
     secondaryCta: "View Showcase"
   },
   {
     id: 2,
-    title: "Historic Medieval Village",
-    subtitle: "Heritage & Living",
+    title: "Historic Heritage & Living",
+    subtitle: "Heritage & Character",
     category: "Signature Series",
-    src: "/videos/video2.mp4",
-    description: "Step into historic homes and timeless medieval village atmospheres.",
-    tag: "02 / 03 — HERITAGE",
-    primaryCta: "Discover Village",
+    src: "/landing/erasio.mp4",
+    description: "Step into distinctive residential homes and timeless heritage atmospheres.",
+    tag: "02 / 05 — HERITAGE",
+    primaryCta: "Discover Portfolio",
     secondaryCta: "Explore History"
   },
   {
@@ -26,10 +26,32 @@ export const videoList = [
     title: "Suburban & Manor Estates",
     subtitle: "Country Cottages & Manors",
     category: "Exclusive Atelier",
-    src: "/videos/video3.mp4",
-    description: "Suburban homes, cozy cottages, and grand manor estates.",
-    tag: "03 / 03 — ESTATES",
+    src: "/landing/erasio.mp4",
+    description: "Suburban family residences, character properties, and grand managed estates.",
+    tag: "03 / 05 — ESTATES",
     primaryCta: "View Estates",
     secondaryCta: "Learn More"
+  },
+  {
+    id: 4,
+    title: "Contemporary Urban Residences",
+    subtitle: "Modern Lettings",
+    category: "Prime Residences",
+    src: "/landing/erasio.mp4",
+    description: "Sleek, high-specification apartments and urban residences across prime London boroughs.",
+    tag: "04 / 05 — URBAN",
+    primaryCta: "Explore Residences",
+    secondaryCta: "Book Valuation"
+  },
+  {
+    id: 5,
+    title: "Bespoke Landlord Lettings",
+    subtitle: "Guaranteed Rent & Lettings",
+    category: "Management Atelier",
+    src: "/landing/erasio.mp4",
+    description: "White-glove property management, guaranteed rental income, and council partnership lettings.",
+    tag: "05 / 05 — MANAGEMENT",
+    primaryCta: "Landlord Services",
+    secondaryCta: "Register Landlord"
   }
 ];

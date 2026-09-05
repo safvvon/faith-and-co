@@ -115,9 +115,9 @@ export default function VideoHero({
       <div className="relative z-30 w-full h-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col justify-between pt-24 pb-12">
         
         {/* Top Sequence Tag & Video Switcher Pill */}
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between animate-fade-in">
           <div className="flex items-center gap-3">
-            <span className="px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-amber-300 text-xs font-mono tracking-widest uppercase shadow-lg">
+            <span className="px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-[#C9A84C] text-xs font-mono tracking-widest uppercase shadow-lg animate-float-slow">
               {currentVideo.tag}
             </span>
             <span className="hidden sm:inline-block text-white/50 text-xs font-mono tracking-widest uppercase">
@@ -133,7 +133,7 @@ export default function VideoHero({
                 onClick={() => onSelectVideo(idx)}
                 className={`px-3 py-1 rounded-full text-xs font-medium tracking-wider uppercase transition-all cursor-pointer ${
                   currentIndex === idx
-                    ? 'bg-amber-300 text-black font-bold shadow-md'
+                    ? 'bg-[#C9A84C] text-black font-bold shadow-md'
                     : 'text-white/70 hover:text-white hover:bg-white/10'
                 }`}
               >
@@ -144,23 +144,23 @@ export default function VideoHero({
         </div>
 
         {/* Center Main Copy */}
-        <div className="max-w-2xl space-y-4 my-auto">
+        <div className="max-w-2xl space-y-4 my-auto animate-fade-up">
           <div className="space-y-2">
-            <p className="text-amber-300 text-xs md:text-sm font-semibold tracking-[0.25em] uppercase">
+            <p className="text-[#C9A84C] text-xs md:text-sm font-semibold tracking-[0.25em] uppercase animate-float-slow">
               {currentVideo.category} — {currentVideo.subtitle}
             </p>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-montserrat font-light text-white tracking-[0.05em] leading-tight">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-cormorant font-light text-white tracking-[0.05em] leading-tight">
               {currentVideo.title}
             </h1>
           </div>
 
-          <p className="text-white/80 text-sm md:text-base font-light leading-relaxed max-w-xl">
+          <p className="text-white/80 text-sm md:text-base font-light leading-relaxed max-w-xl font-dm">
             {currentVideo.description}
           </p>
 
           {/* CTA Buttons */}
           <div className="pt-4 flex flex-wrap items-center gap-4">
-            <button className="flex items-center gap-3 px-7 py-3 rounded-full bg-white text-black font-semibold text-xs tracking-widest uppercase hover:bg-amber-200 transition-all transform hover:scale-[1.02] cursor-pointer shadow-xl">
+            <button className="flex items-center gap-3 px-8 py-3.5 bg-[#C9A84C] hover:bg-[#E8C878] text-[#090a14] font-bold text-xs tracking-[0.2em] uppercase transition-all duration-300 transform hover:-translate-y-0.5 cursor-pointer shadow-xl rounded-none">
               <span>{currentVideo.primaryCta}</span>
               <ArrowRight className="w-4 h-4" />
             </button>

@@ -56,37 +56,37 @@ export default function RentersRightsPage({
   return (
     <div className="w-full min-h-screen bg-[#090a14] text-white font-dm selection:bg-[#C9A84C] selection:text-[#090a14] relative overflow-x-hidden pt-24 sm:pt-28">
       
-      {/* 1. HERO HEADER AREA (SPACIOUS FULL WIDTH) */}
-      <section className="relative w-full py-20 sm:py-28 px-6 sm:px-12 lg:px-16 border-b border-white/10 bg-[#090a14] text-center">
-        <div className="max-w-5xl mx-auto space-y-6 animate-fade-up">
+      {/* 1. HERO HEADER AREA (100% FULL WIDTH) */}
+      <section className="relative w-full py-24 sm:py-36 px-4 sm:px-8 lg:px-12 border-b border-white/10 bg-[#090a14] text-center">
+        <div className="w-full relative z-10 space-y-8 animate-fade-up">
           <div>
-            <span className="inline-block px-3.5 py-1.5 border border-[#C9A84C]/50 text-[#C9A84C] text-[10px] font-dm tracking-[0.25em] font-medium uppercase">
+            <span className="inline-block px-4 py-2 border border-[#C9A84C]/50 text-[#C9A84C] text-xs font-dm tracking-[0.25em] font-medium uppercase">
               LEGISLATION &amp; REFORM SUMMARY
             </span>
           </div>
 
-          <h1 className="font-cormorant font-light text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-[1.1]">
+          <h1 className="font-cormorant font-light text-5xl sm:text-7xl lg:text-8xl text-white tracking-tight leading-[1.08]">
             The Renters' Rights Act <span className="italic text-[#C9A84C] font-normal">2025</span>
           </h1>
 
-          <p className="font-dm text-sm sm:text-lg font-light text-white/70 tracking-wide max-w-3xl mx-auto leading-relaxed">
+          <p className="font-dm text-lg sm:text-xl lg:text-2xl font-light text-white/80 tracking-wide max-w-5xl mx-auto leading-relaxed">
             The biggest reform to the private rented sector in decades. Here is a clear, practical breakdown of the statutory changes and what they mean for landlords.
           </p>
 
           <div className="pt-4 flex justify-center font-dm">
             <button
               onClick={() => document.getElementById('renters-rights-content')?.scrollIntoView({ behavior: 'smooth' })}
-              className="inline-flex items-center gap-3 px-8 sm:px-10 py-4 bg-[#C9A84C] hover:bg-[#E8C878] text-[#090a14] text-xs tracking-[0.2em] font-semibold uppercase transition-all duration-300 cursor-pointer shadow-2xl active:scale-95 rounded-none font-dm"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-[#C9A84C] hover:bg-[#E8C878] text-[#090a14] text-sm sm:text-base tracking-[0.25em] font-bold uppercase transition-all duration-300 cursor-pointer shadow-2xl active:scale-95 rounded-none font-dm"
             >
               <span>EXPLORE REFORMS</span>
-              <ArrowDown className="w-4 h-4" />
+              <ArrowDown className="w-5 h-5" />
             </button>
           </div>
         </div>
       </section>
 
-      {/* 2. MAIN CONTENT (SPACIOUS 1450PX WIDE CONTAINER) */}
-      <main id="renters-rights-content" className="w-full max-w-[1450px] mx-auto px-6 sm:px-12 lg:px-16 py-16 sm:py-24 space-y-20 font-dm">
+      {/* 2. MAIN CONTENT (100% FULL-WIDTH EDGE-TO-EDGE) */}
+      <main id="renters-rights-content" className="w-full px-4 sm:px-8 lg:px-12 py-16 sm:py-28 space-y-20 font-dm">
         
         {/* INTRO SUMMARY BANNER */}
         <section className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center p-8 sm:p-12 bg-white/[0.02] border border-white/10 rounded-sm animate-fade-up">

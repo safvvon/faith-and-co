@@ -112,24 +112,24 @@ export default function LetWithUsPage({
     <div className="w-full min-h-screen bg-[#090a14] text-[#FFFFFF] font-dm selection:bg-[#C9A84C] selection:text-[#090a14] relative overflow-x-hidden pt-24 sm:pt-28">
       
       {/* ----------------------------------------------------
-          4. HERO SECTION
+          4. HERO SECTION (100% FULL WIDTH)
       ---------------------------------------------------- */}
-      <header className="relative w-full py-24 sm:py-32 lg:py-40 px-6 sm:px-12 lg:px-20 border-b border-[rgba(255,255,255,0.07)] overflow-hidden">
-        <div className="max-w-4xl mx-auto relative z-10 space-y-8 animate-fade-up">
+      <header className="relative w-full py-24 sm:py-36 px-4 sm:px-8 lg:px-12 border-b border-[rgba(255,255,255,0.07)] overflow-hidden">
+        <div className="w-full relative z-10 space-y-8 animate-fade-up">
           {/* Small Gold Eyebrow */}
           <div>
-            <span className="inline-block px-3.5 py-1.5 border border-[#C9A84C]/50 text-[#C9A84C] text-[10px] font-dm tracking-[0.25em] font-medium uppercase">
+            <span className="inline-block px-4 py-2 border border-[#C9A84C]/50 text-[#C9A84C] text-xs font-dm tracking-[0.25em] font-medium uppercase animate-float-slow">
               FOR LANDLORDS
             </span>
           </div>
 
           {/* Main Headline */}
-          <h1 className="font-cormorant font-light text-4xl sm:text-6xl md:text-7xl lg:text-[78px] text-white tracking-tight leading-[1.08]">
+          <h1 className="font-cormorant font-light text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-white tracking-tight leading-[1.05]">
             Let your property with <span className="italic text-[#C9A84C] font-normal">confidence</span>
           </h1>
 
           {/* Supporting Text */}
-          <p className="font-dm text-base sm:text-xl font-light text-white/70 leading-relaxed max-w-3xl">
+          <p className="font-dm text-lg sm:text-xl lg:text-2xl font-light text-white/80 leading-relaxed max-w-5xl">
             Faith &amp; Co gives landlords more than a tenant. We give you access to the full breadth of the London market, the certainty of guaranteed income if you want it, and a team that treats your property as if it were our own.
           </p>
 
@@ -137,16 +137,15 @@ export default function LetWithUsPage({
           <div className="pt-4 flex flex-wrap items-center gap-4">
             <button
               onClick={onBookValuation || onContactTeam}
-              className="inline-flex items-center gap-3 px-8 sm:px-10 py-4 sm:py-5 bg-[#C9A84C] hover:bg-[#E8C878] text-[#060E16] font-dm text-xs font-semibold tracking-[0.2em] uppercase transition-all duration-300 hover:-translate-y-0.5 cursor-pointer shadow-xl rounded-none active:scale-95"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-[#C9A84C] hover:bg-[#E8C878] text-[#060E16] font-dm text-sm sm:text-base font-bold tracking-[0.25em] uppercase transition-all duration-300 hover:-translate-y-0.5 cursor-pointer shadow-xl rounded-none active:scale-95"
             >
-              <span>BOOK A FREE VALUATION</span>
-              <span className="text-sm">→</span>
+              <span>REQUEST A VALUATION</span>
+              <ArrowRight className="w-5 h-5" />
             </button>
-
             {onRegisterLandlord && (
               <button
                 onClick={onRegisterLandlord}
-                className="px-7 py-4 sm:py-5 border border-[#C9A84C]/60 text-[#C9A84C] hover:bg-[#C9A84C]/10 font-dm text-xs font-semibold tracking-[0.2em] uppercase transition-all duration-300 cursor-pointer rounded-none"
+                className="inline-flex items-center gap-3 px-10 py-5 bg-white/10 hover:bg-white/20 border border-white/20 text-white font-dm text-sm sm:text-base font-bold tracking-[0.25em] uppercase transition-all duration-300 hover:-translate-y-0.5 cursor-pointer rounded-none active:scale-95"
               >
                 REGISTER AS LANDLORD
               </button>
@@ -156,16 +155,16 @@ export default function LetWithUsPage({
       </header>
 
       {/* ----------------------------------------------------
-          5. STATISTICS BAR
+          5. STATISTICS BAR (100% FULL WIDTH)
       ---------------------------------------------------- */}
-      <section className="w-full border-b border-[rgba(255,255,255,0.07)] py-12 sm:py-16 px-6 bg-[#04090F]/50">
-        <div className="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x-0 md:divide-x divide-[rgba(255,255,255,0.07)]">
+      <section className="w-full border-b border-[rgba(255,255,255,0.07)] py-12 sm:py-16 px-4 sm:px-8 lg:px-12 bg-[#04090F]/50">
+        <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x-0 md:divide-x divide-[rgba(255,255,255,0.07)]">
           {STATS_DATA.map((stat, idx) => (
             <div key={idx} className="space-y-2 p-4">
               <span className="font-cormorant text-4xl sm:text-5xl lg:text-6xl text-[#C9A84C] font-light block">
                 {stat.value}
               </span>
-              <span className="font-dm text-[11px] tracking-[0.2em] text-white/60 uppercase block font-medium">
+              <span className="font-dm text-xs tracking-[0.2em] text-white/70 uppercase block font-semibold">
                 {stat.label}
               </span>
             </div>
@@ -174,9 +173,9 @@ export default function LetWithUsPage({
       </section>
 
       {/* ----------------------------------------------------
-          6. WHY LET WITH US
+          6. WHY LET WITH US (100% FULL WIDTH)
       ---------------------------------------------------- */}
-      <section className="w-full max-w-[1300px] mx-auto px-6 sm:px-12 py-20 sm:py-32">
+      <section className="w-full px-4 sm:px-8 lg:px-12 py-20 sm:py-32">
         <div className="max-w-3xl space-y-4 mb-16">
           <h2 className="font-cormorant font-light text-3xl sm:text-5xl text-white tracking-tight leading-tight">
             More demand, more security, <span className="italic text-[#C9A84C] font-normal">more peace of mind</span>
@@ -217,8 +216,8 @@ export default function LetWithUsPage({
       {/* ----------------------------------------------------
           7. SERVICE LEVELS SECTION
       ---------------------------------------------------- */}
-      <section className="w-full bg-[#081320] border-y border-[rgba(255,255,255,0.07)] py-24 sm:py-32 px-6 sm:px-12">
-        <div className="max-w-6xl mx-auto text-center space-y-4 mb-16 sm:mb-20">
+      <section className="w-full bg-[#081320] border-y border-[rgba(255,255,255,0.07)] py-24 sm:py-32 px-6 sm:px-12 lg:px-16">
+        <div className="max-w-[1450px] mx-auto text-center space-y-4 mb-16 sm:mb-20">
           <span className="font-dm text-xs tracking-[0.25em] text-[#C9A84C] font-semibold uppercase block">
             SERVICE OPTIONS
           </span>
@@ -231,7 +230,7 @@ export default function LetWithUsPage({
         </div>
 
         {/* 4 Equal Service Cards */}
-        <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="max-w-[1450px] mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {SERVICE_LEVELS.map((service) => (
             <div
               key={service.number}

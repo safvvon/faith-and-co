@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowRight, ArrowDown, ShieldCheck, CheckCircle, Award, Users, Building2, ChevronRight } from 'lucide-react';
 import StandardFooter from './StandardFooter';
 import HomeFooterCta from './HomeFooterCta';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 const PHILOSOPHY_LIST = [
   {
@@ -84,6 +85,8 @@ export default function AboutUsPage({
   onExploreProperties,
   onNavigateEnquiry
 }) {
+  useScrollReveal();
+
   const [counts, setCounts] = useState({ properties: 0, landlords: 0, years: 0 });
 
   useEffect(() => {
@@ -107,29 +110,29 @@ export default function AboutUsPage({
       {/* ----------------------------------------------------
           1. HERO HEADER AREA
       ---------------------------------------------------- */}
-      <section className="relative w-full py-24 sm:py-32 px-6 sm:px-12 lg:px-16 border-b border-[rgba(255,255,255,0.07)] bg-[#090a14] overflow-hidden text-center">
-        <div className="max-w-4xl mx-auto relative z-10 space-y-6 animate-fade-up">
+      <section className="relative w-full py-24 sm:py-36 px-4 sm:px-8 lg:px-12 border-b border-[rgba(255,255,255,0.07)] bg-[#090a14] overflow-hidden text-center">
+        <div className="w-full relative z-10 space-y-8 animate-fade-up">
           <div>
-            <span className="inline-block px-3.5 py-1.5 border border-[#C9A84C]/50 text-[#C9A84C] text-[10px] font-dm tracking-[0.25em] font-medium uppercase">
+            <span className="inline-block px-4 py-2 border border-[#C9A84C]/50 text-[#C9A84C] text-xs font-dm tracking-[0.25em] font-medium uppercase animate-float-slow">
               ABOUT FAITH &amp; CO
             </span>
           </div>
 
-          <h1 className="font-cormorant font-light text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-[1.08]">
+          <h1 className="font-cormorant font-light text-5xl sm:text-7xl lg:text-8xl text-white tracking-tight leading-[1.05]">
             Property with <span className="italic text-[#C9A84C] font-normal">purpose &amp; integrity</span>
           </h1>
 
-          <p className="font-dm text-sm sm:text-base lg:text-lg font-light text-white/70 tracking-wide max-w-2xl mx-auto leading-relaxed">
+          <p className="font-dm text-lg sm:text-xl lg:text-2xl font-light text-white/80 tracking-wide max-w-5xl mx-auto leading-relaxed">
             We believe exceptional property management starts with treating every home, landlord, and tenant with white-glove diligence and genuine transparency.
           </p>
 
           <div className="pt-4 flex justify-center">
             <button
               onClick={scrollToStory}
-              className="inline-flex items-center gap-2 px-8 py-4 bg-[#C9A84C] hover:bg-[#E8C878] text-[#090a14] text-xs tracking-[0.2em] font-semibold uppercase transition-all duration-300 cursor-pointer shadow-xl rounded-none font-dm"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-[#C9A84C] hover:bg-[#E8C878] text-[#090a14] text-sm sm:text-base tracking-[0.25em] font-bold uppercase transition-all duration-300 cursor-pointer shadow-xl rounded-none font-dm"
             >
               <span>DISCOVER OUR STORY</span>
-              <ArrowDown className="w-4 h-4" />
+              <ArrowDown className="w-5 h-5" />
             </button>
           </div>
         </div>
@@ -138,10 +141,10 @@ export default function AboutUsPage({
       {/* ----------------------------------------------------
           2. OUR STORY
       ---------------------------------------------------- */}
-      <section id="our-story-section" className="bg-[#090a14] py-20 sm:py-28 border-b border-white/10 font-dm">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+      <section id="our-story-section" className="bg-[#090a14] py-20 sm:py-32 border-b border-white/10 font-dm reveal-on-scroll">
+        <div className="w-full px-4 sm:px-8 lg:px-12">
           
-          <span className="text-xs font-semibold tracking-[0.25em] uppercase text-[#C9A84C] block mb-3 font-dm">
+          <span className="text-sm font-semibold tracking-[0.25em] uppercase text-[#C9A84C] block mb-3 font-dm">
             OUR STORY
           </span>
 
@@ -185,7 +188,7 @@ export default function AboutUsPage({
       {/* ----------------------------------------------------
           3. OUR PHILOSOPHY
       ---------------------------------------------------- */}
-      <section className="max-w-[1500px] mx-auto px-6 lg:px-12 py-20 sm:py-28 font-dm">
+      <section className="max-w-[1500px] mx-auto px-6 lg:px-12 py-20 sm:py-28 font-dm reveal-on-scroll">
         <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
           <span className="text-xs font-semibold tracking-[0.25em] text-[#C9A84C] uppercase block">
             OUR PHILOSOPHY
@@ -270,11 +273,11 @@ export default function AboutUsPage({
       {/* ----------------------------------------------------
           5. OUR APPROACH
       ---------------------------------------------------- */}
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-12 py-20 sm:py-28 font-dm">
+      <section className="max-w-[1450px] mx-auto px-6 sm:px-12 lg:px-16 py-20 sm:py-28 font-dm">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           <div className="lg:col-span-6 space-y-6">
-            <span className="text-xs font-semibold tracking-[0.25em] text-[#C9A84C] uppercase block">
+            <span className="text-xs font-semibold tracking-[0.25em] text-[#C9A84C] uppercase block font-dm animate-float-slow">
               OUR DEDICATION
             </span>
             <h2 className="font-cormorant font-light text-4xl sm:text-6xl text-white tracking-tight leading-tight">
@@ -300,7 +303,7 @@ export default function AboutUsPage({
           6. OUR VALUES
       ---------------------------------------------------- */}
       <section className="bg-[#090a14] py-20 sm:py-28 border-y border-white/10 font-dm">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
+        <div className="max-w-[1450px] mx-auto px-6 sm:px-12 lg:px-16">
           
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3">
             <span className="text-xs font-semibold tracking-[0.25em] text-[#C9A84C] uppercase block">
@@ -333,7 +336,7 @@ export default function AboutUsPage({
       {/* ----------------------------------------------------
           7. COMPANY NUMBERS
       ---------------------------------------------------- */}
-      <section className="max-w-[1400px] mx-auto px-6 lg:px-12 py-20 sm:py-28 font-dm">
+      <section className="max-w-[1450px] mx-auto px-6 sm:px-12 lg:px-16 py-20 sm:py-28 font-dm">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 bg-white/[0.03] border border-white/10 p-8 sm:p-12 text-center">
           
           <div className="space-y-2">

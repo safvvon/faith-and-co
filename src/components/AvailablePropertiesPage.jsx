@@ -123,10 +123,10 @@ export default function AvailablePropertiesPage({ onNavigateHome, onNavigateCont
 
       {/* HERO SECTION */}
       <header className="relative w-full py-20 sm:py-28 px-6 sm:px-12 text-center border-b border-[rgba(255,255,255,0.07)] overflow-hidden">
-        <div className="max-w-3xl mx-auto relative z-10 space-y-6 animate-fade-up">
+        <div className="max-w-4xl mx-auto relative z-10 space-y-6 animate-fade-up">
           {/* Small Gold Eyebrow */}
           <div>
-            <span className="inline-block px-3.5 py-1.5 border border-[#C9A84C]/50 text-[#C9A84C] text-[10px] font-montserrat tracking-[0.25em] font-medium uppercase">
+            <span className="inline-block px-3.5 py-1.5 border border-[#C9A84C]/50 text-[#C9A84C] text-[10px] font-montserrat tracking-[0.25em] font-medium uppercase animate-float-slow">
               AVAILABLE NOW
             </span>
           </div>
@@ -137,15 +137,15 @@ export default function AvailablePropertiesPage({ onNavigateHome, onNavigateCont
           </h1>
 
           {/* Supporting Text */}
-          <p className="font-montserrat text-base sm:text-lg font-light text-white/70 leading-relaxed max-w-2xl mx-auto">
+          <p className="font-montserrat text-base sm:text-lg font-light text-white/70 leading-relaxed max-w-3xl mx-auto">
             Browse our current availability across London. From family homes and HMOs to specialist C2 and operator-ready property.
           </p>
         </div>
       </header>
 
       {/* PROPERTY FILTERS (Sticky Filter Bar) */}
-      <section className="sticky top-20 sm:top-24 z-40 w-full bg-[#090a14]/95 backdrop-blur-md border-b border-[rgba(255,255,255,0.07)] py-4 px-6 sm:px-12">
-        <div className="max-w-[1300px] mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 font-montserrat">
+      <section className="sticky top-20 sm:top-24 z-40 w-full bg-[#090a14]/95 backdrop-blur-md border-b border-[rgba(255,255,255,0.07)] py-4 px-4 sm:px-8 lg:px-12">
+        <div className="w-full flex flex-col sm:flex-row items-center justify-between gap-4 font-montserrat">
           
           {/* Category Buttons */}
           <div className="flex flex-wrap items-center gap-2.5 w-full sm:w-auto">
@@ -176,9 +176,9 @@ export default function AvailablePropertiesPage({ onNavigateHome, onNavigateCont
       </section>
 
       {/* ----------------------------------------------------
-          6. PROPERTY GRID
+          6. PROPERTY GRID (100% FULL-WIDTH EDGE-TO-EDGE)
       ---------------------------------------------------- */}
-      <main className="w-full max-w-[1300px] mx-auto px-6 sm:px-12 py-16 sm:py-24">
+      <main className="w-full px-4 sm:px-8 lg:px-12 py-16 sm:py-28">
         
         {filteredProperties.length === 0 ? (
           /* Empty Filter State */

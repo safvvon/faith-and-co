@@ -4,7 +4,7 @@ import { ArrowRight } from 'lucide-react';
 export default function HomeFooterCta({ onStartConversation, onBrowseResidences, onLandlordPortal, onRentersRights, onHmoLicensing, onGuideToLetting, onRegisterLandlord }) {
   return (
     <section className="w-full bg-[#090a14] py-24 sm:py-32 border-t border-white/10 text-center px-6 font-dm">
-      <div className="max-w-3xl mx-auto space-y-6">
+      <div className="max-w-4xl mx-auto space-y-6 animate-fade-up">
         <h2 className="font-cormorant font-light text-4xl sm:text-6xl text-white tracking-tight leading-tight">
           Your property. <span className="italic text-[#C9A84C] font-normal">Our priority.</span>
         </h2>

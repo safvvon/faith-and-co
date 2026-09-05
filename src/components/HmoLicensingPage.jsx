@@ -85,38 +85,38 @@ export default function HmoLicensingPage({
   return (
     <div className="w-full min-h-screen bg-[#090a14] text-white font-dm selection:bg-[#C9A84C] selection:text-[#090a14] relative overflow-x-hidden pt-24 sm:pt-28">
       
-      {/* 1. HERO HEADER AREA */}
-      <section className="relative w-full py-20 sm:py-28 px-6 sm:px-12 lg:px-16 border-b border-white/10 bg-[#090a14] text-center">
-        <div className="max-w-5xl mx-auto space-y-6 animate-fade-up">
+      {/* 1. HERO HEADER AREA (100% FULL WIDTH) */}
+      <section className="relative w-full py-24 sm:py-36 px-4 sm:px-8 lg:px-12 border-b border-white/10 bg-[#090a14] text-center">
+        <div className="w-full relative z-10 space-y-8 animate-fade-up">
           <div>
-            <span className="inline-block px-3.5 py-1.5 border border-[#C9A84C]/50 text-[#C9A84C] text-[10px] font-dm tracking-[0.25em] font-medium uppercase">
+            <span className="inline-block px-4 py-2 border border-[#C9A84C]/50 text-[#C9A84C] text-xs font-dm tracking-[0.25em] font-medium uppercase">
               REGULATORY COMPLIANCE GUIDE
             </span>
           </div>
 
-          <h1 className="font-cormorant font-light text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-[1.1]">
+          <h1 className="font-cormorant font-light text-5xl sm:text-7xl lg:text-8xl text-white tracking-tight leading-[1.08]">
             Understanding <span className="italic text-[#C9A84C] font-normal">HMO licensing</span>
           </h1>
 
-          <p className="font-dm text-sm sm:text-lg font-light text-white/70 tracking-wide max-w-3xl mx-auto leading-relaxed">
+          <p className="font-dm text-lg sm:text-xl lg:text-2xl font-light text-white/80 tracking-wide max-w-5xl mx-auto leading-relaxed">
             Houses in Multiple Occupation yield strong returns but carry strict statutory compliance rules. Clear guidance on licensing tiers and London borough enforcement.
           </p>
 
           <div className="pt-4 flex justify-center font-dm">
             <button
               onClick={() => scrollToSection('what-is-an-hmo')}
-              className="inline-flex items-center gap-3 px-8 sm:px-10 py-4 bg-[#C9A84C] hover:bg-[#E8C878] text-[#090a14] text-xs tracking-[0.2em] font-semibold uppercase transition-all duration-300 cursor-pointer shadow-2xl active:scale-95 rounded-none font-dm"
+              className="inline-flex items-center gap-3 px-10 py-5 bg-[#C9A84C] hover:bg-[#E8C878] text-[#090a14] text-sm sm:text-base tracking-[0.25em] font-bold uppercase transition-all duration-300 cursor-pointer shadow-2xl active:scale-95 rounded-none font-dm"
             >
               <span>EXPLORE GUIDE</span>
-              <ArrowDown className="w-4 h-4" />
+              <ArrowDown className="w-5 h-5" />
             </button>
           </div>
         </div>
       </section>
 
       {/* 2. STICKY TOP NAVIGATION BAR */}
-      <div className="sticky top-0 z-30 bg-[#090a14]/95 backdrop-blur-md border-b border-white/10 py-4 px-6">
-        <div className="max-w-[1450px] mx-auto flex items-center justify-center sm:justify-start gap-3 overflow-x-auto no-scrollbar scroll-smooth">
+      <div className="sticky top-0 z-30 bg-[#090a14]/95 backdrop-blur-md border-b border-white/10 py-4 px-4 sm:px-8 lg:px-12">
+        <div className="w-full flex items-center justify-center sm:justify-start gap-3 overflow-x-auto no-scrollbar scroll-smooth">
           {TOC_ITEMS.map((item) => (
             <button
               key={item.id}
@@ -133,8 +133,8 @@ export default function HmoLicensingPage({
         </div>
       </div>
 
-      {/* 3. MAIN CONTENT (SPACIOUS WIDE 1450PX LAYOUT) */}
-      <main className="w-full max-w-[1450px] mx-auto px-6 sm:px-12 lg:px-16 py-16 sm:py-24 space-y-24 font-dm">
+      {/* 3. MAIN CONTENT (100% FULL-WIDTH EDGE-TO-EDGE) */}
+      <main className="w-full px-4 sm:px-8 lg:px-12 py-16 sm:py-28 space-y-28 font-dm">
         
         {/* SECTION 01 — WHAT IS AN HMO */}
         <section id="what-is-an-hmo" className="scroll-mt-28 space-y-8 animate-fade-up">

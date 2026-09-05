@@ -13,8 +13,8 @@ export default function StandardFooter({
   onNavigateFreeValuation
 }) {
   return (
-    <footer className="w-full bg-[#090a14] border-t border-white/10 py-16 sm:py-20 px-6 sm:px-12 lg:px-16 font-dm">
-      <div className="max-w-[1450px] mx-auto space-y-12">
+    <footer className="w-full bg-[#090a14] border-t border-white/10 py-16 sm:py-20 px-4 sm:px-8 lg:px-12 font-dm">
+      <div className="w-full space-y-12">
         
         {/* TWO-SIDE SPLIT FOOTER LAYOUT */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
@@ -33,7 +33,7 @@ export default function StandardFooter({
               </p>
             </div>
 
-            <p className="text-white/70 text-xs sm:text-sm font-light leading-relaxed max-w-md font-dm">
+            <p className="text-white/70 text-sm sm:text-base font-light leading-relaxed font-dm">
               Providing modern, transparent, high-yield property management across Greater London and the Home Counties. Dedicated to protecting your residential asset.
             </p>
 

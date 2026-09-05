@@ -76,9 +76,9 @@ export default function RegisterLandlordPage({
     <div className="w-full min-h-screen bg-[#090a14] text-[#FFFFFF] font-dm selection:bg-[#C9A84C] selection:text-[#090a14] relative overflow-x-hidden pt-24 sm:pt-28">
       
       {/* ----------------------------------------------------
-          4. MAIN REGISTRATION LAYOUT (2-COL SPLIT-SCREEN)
+          MAIN REGISTRATION SECTION (100% FULL-WIDTH EDGE-TO-EDGE)
       ---------------------------------------------------- */}
-      <main className="w-full max-w-[1350px] mx-auto px-6 sm:px-12 py-16 sm:py-24">
+      <main className="w-full px-4 sm:px-8 lg:px-12 py-16 sm:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* LEFT — Brand / Introduction (~45% width) */}

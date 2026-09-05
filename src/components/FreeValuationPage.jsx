@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Check, CheckCircle2, ArrowDown } from 'lucide-react';
 import StandardFooter from './StandardFooter';
 import HomeFooterCta from './HomeFooterCta';
+import useScrollReveal from '../hooks/useScrollReveal';
 
 export default function FreeValuationPage({
   onNavigateHome,
@@ -15,6 +16,8 @@ export default function FreeValuationPage({
   onNavigateLetWithUs,
   onNavigateFreeValuation
 }) {
+  useScrollReveal();
+
   const [formData, setFormData] = useState({
     postcode: '',
     addressLine1: '',
@@ -79,38 +82,41 @@ export default function FreeValuationPage({
 
   return (
     <div className="w-full min-h-screen bg-[#090a14] text-white font-dm selection:bg-[#C9A84C] selection:text-[#090a14] relative overflow-x-hidden pt-24 sm:pt-28">
+      {/* Ambient Floating Gold & Cyan Glow Orbs */}
+      <div className="absolute top-1/4 -left-48 w-96 h-96 bg-[#C9A84C]/15 rounded-full blur-3xl pointer-events-none animate-orb-float-1" />
+      <div className="absolute top-2/3 -right-48 w-96 h-96 bg-[#38bdf8]/15 rounded-full blur-3xl pointer-events-none animate-orb-float-2" />
       
       {/* 1. HERO HEADER AREA (Clean Text-Only Landing) */}
-      <section className="relative w-full py-24 sm:py-32 px-6 sm:px-12 lg:px-16 border-b border-white/10 bg-[#090a14] text-center">
-        <div className="max-w-4xl mx-auto space-y-6 animate-fade-up">
+      <section className="relative w-full py-24 sm:py-36 px-4 sm:px-8 lg:px-12 border-b border-white/10 bg-[#090a14] text-center">
+        <div className="w-full relative z-10 space-y-8 animate-fade-up">
           <div>
-            <span className="inline-block px-3.5 py-1.5 border border-[#C9A84C]/50 text-[#C9A84C] text-[10px] font-dm tracking-[0.25em] font-medium uppercase">
+            <span className="inline-block px-4 py-2 border border-[#C9A84C]/50 text-[#C9A84C] text-xs font-dm tracking-[0.25em] font-medium uppercase animate-float-slow">
               FREE &amp; NO OBLIGATION VALUATION
             </span>
           </div>
 
-          <h1 className="font-cormorant font-light text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-[1.1]">
+          <h1 className="font-cormorant font-light text-5xl sm:text-7xl lg:text-8xl text-white tracking-tight leading-[1.08]">
             Discover what your <span className="italic text-[#C9A84C] font-normal">property can achieve</span>
           </h1>
 
-          <p className="text-white/70 text-sm sm:text-lg font-light tracking-wide max-w-2xl mx-auto font-dm leading-relaxed">
+          <p className="text-white/80 text-lg sm:text-xl lg:text-2xl font-light tracking-wide max-w-5xl mx-auto font-dm leading-relaxed">
             Get an honest, expert valuation of your property's rental potential across standard market lettings and specialist high-yield sectors. Takes less than two minutes to request.
           </p>
 
           <div className="pt-4 flex justify-center font-dm">
             <button
               onClick={() => document.getElementById('valuation-form-section')?.scrollIntoView({ behavior: 'smooth' })}
-              className="inline-flex items-center gap-3 px-8 sm:px-10 py-4 bg-[#C9A84C] hover:bg-[#E8C878] text-[#090a14] text-xs tracking-[0.2em] font-semibold uppercase transition-all duration-300 cursor-pointer shadow-2xl active:scale-95 rounded-none font-dm"
+              className="inline-flex items-center gap-3 px-10 sm:px-12 py-5 bg-[#C9A84C] hover:bg-[#E8C878] text-[#090a14] text-sm sm:text-base tracking-[0.25em] font-bold uppercase transition-all duration-300 cursor-pointer shadow-2xl active:scale-95 rounded-none font-dm"
             >
               <span>REQUEST VALUATION NOW</span>
-              <ArrowDown className="w-4 h-4" />
+              <ArrowDown className="w-5 h-5" />
             </button>
           </div>
         </div>
       </section>
 
-      {/* 2. MAIN VALUATION SECTION (2-COL SPLIT-SCREEN) */}
-      <main id="valuation-form-section" className="w-full max-w-[1350px] mx-auto px-6 sm:px-12 py-16 sm:py-24">
+      {/* 2. MAIN VALUATION SECTION (100% FULL-WIDTH EDGE-TO-EDGE) */}
+      <main id="valuation-form-section" className="w-full px-4 sm:px-8 lg:px-12 py-16 sm:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Left Column — Benefits & Overview (col-span-5) */}
@@ -396,7 +402,7 @@ export default function FreeValuationPage({
 
       {/* 3. HOW OUR VALUATION WORKS (3-STEP PROCESS) */}
       <section className="w-full bg-[#090a14] py-20 sm:py-28 border-t border-white/10 font-dm">
-        <div className="max-w-[1300px] mx-auto px-6 sm:px-12">
+        <div className="max-w-[1450px] mx-auto px-6 sm:px-12 lg:px-16">
           
           <div className="text-center max-w-2xl mx-auto mb-16 space-y-3 animate-fade-up">
             <span className="text-xs font-semibold tracking-[0.25em] text-[#C9A84C] uppercase block">
